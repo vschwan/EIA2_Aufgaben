@@ -6,13 +6,6 @@ var übungenL01;
         let v = 1;
         v = v + 1;
         console.log(v);
-        let s = {
-            "zahl": 7,
-            "wahr": true,
-            text: "Hallo"
-        };
-        console.log(s);
-        console.log(s["text"]);
         let a = { "wert1": true, "wert2": false };
         console.log(a);
         let vector = { x: 12.4, y: -7.2, meaning: "Ortsvektor" };

@@ -7,6 +7,8 @@ namespace übungenL01 {
         v = v + 1;
         console.log(v);
 
+
+        /*
         let s = {
             "zahl": 7,
             "wahr": true,
@@ -14,8 +16,11 @@ namespace übungenL01 {
         };
 
         console.log(s);
-        console.log(s["text"]);
+        console.log(s["text"]); /*
 
+
+
+        
         /*
         s[4] = [1001, 102];
         console.log(s[4]);
