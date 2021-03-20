@@ -13,26 +13,30 @@ namespace L02_BlackmailerCompanion {
 
     }
 
+
     //Handler geben meist keinen wert zurück --> typ: void
     function placeLetter(_event: MouseEvent): void {
         console.log(_event);
+        if (_event.target == _event.currentTarget) {
+            //offset x und offset y --> position bezogen auf Elternelement (hier: div)
+            //Elternelement muss positionierung tragen 
+            let x: number = _event.offsetX;
+            let y: number = _event.offsetY;
+            mail = <HTMLDivElement>_event.target;
+            let letter: HTMLSpanElement = document.createElement("span");
+            mail.appendChild(letter);
 
-        //offset x und offset y --> position bezogen auf Elternelement (hier: div)
-        //Elternelement muss positionierung tragen 
-        let x: number = _event.offsetX;
-        let y: number = _event.offsetY;
-        mail = <HTMLDivElement>_event.target;
-        let letter: HTMLSpanElement = document.createElement("span");
-        mail.appendChild(letter);
+            letter.textContent = chosenCharacter;
+            letter.style.left = x + "px";
+            letter.style.top = y + "px";
 
-        letter.textContent = chosenCharacter;
-        letter.style.left = x + "px";
-        letter.style.top = y + "px";
+            letter.addEventListener("click", deleteLetter);
+        }
 
-        letter.addEventListener("click", deleteLetter);
+
+
+
     }
-
-
 
     // Strg+# für ausklammern
     function chooseCharacter(_event: KeyboardEvent): void {
@@ -48,6 +52,7 @@ namespace L02_BlackmailerCompanion {
         parent.removeChild(target);
         // _event.stopPropagation();
 
+
     }
 
     //Problem: durch die Bubble Phase bei klick auf letter wird auch dei funktion placeLetter getriggert 
@@ -55,13 +60,12 @@ namespace L02_BlackmailerCompanion {
 
     // Lösungen:
 
-    // _event.stopPropagation();
+    //1. _event.stopPropagation();
 
-    //fragen ob target und currenttarget gleich sind --> klicke ich auf div#mail, wird placeletter getriggert 
-    //--> div#mail ist dann target und nur dann soll ein letter platziert werden
+    //2. fragen ob target und currenttarget gleich sind --> nur dann letter platzieren
 
 
-    //wenn div#mail geklickt wird --> ist target div#mail oder letter? 
+    //3. wenn div#mail geklickt wird --> ist target div#mail oder letter? 
     // --> dann entscheiden: soll place oder deleteletter aufgerufen werden`?
 
 
