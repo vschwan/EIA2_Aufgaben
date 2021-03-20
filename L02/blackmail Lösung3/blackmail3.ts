@@ -8,31 +8,38 @@ namespace L02_BlackmailerCompanion {
 
     function handleLoad(_event: Event): void {
         mail = <HTMLDivElement>document.querySelector("div#mail");
-        mail.addEventListener("click", placeLetter);
+        mail.addEventListener("click", handleClick);
         document.addEventListener("keydown", chooseCharacter);  //mehrere Objekte mit gleichem Namen ändern: F2
 
     }
 
+    function handleClick(_event: MouseEvent): void {
+        let target: Node = <Node>_event.target;
+        console.log(target);
+        if (target == mail) {
+            placeLetter(_event);
+        }
+        else {
+            deleteLetter(_event);
+        }
+    }
 
 
     //Handler geben meist keinen wert zurück --> typ: void
     function placeLetter(_event: MouseEvent): void {
         console.log(_event);
-        if (_event.target == _event.currentTarget) {
-            //offset x und offset y --> position bezogen auf Elternelement (hier: div)
-            //Elternelement muss positionierung tragen 
-            let x: number = _event.offsetX;
-            let y: number = _event.offsetY;
-            mail = <HTMLDivElement>_event.target;
-            let letter: HTMLSpanElement = document.createElement("span");
-            mail.appendChild(letter);
+      
+        //offset x und offset y --> position bezogen auf Elternelement (hier: div)
+        //Elternelement muss positionierung tragen 
+        let x: number = _event.offsetX;
+        let y: number = _event.offsetY;
+        mail = <HTMLDivElement>_event.target;
+        let letter: HTMLSpanElement = document.createElement("span");
+        mail.appendChild(letter);
 
-            letter.textContent = chosenCharacter;
-            letter.style.left = x + "px";
-            letter.style.top = y + "px";
-
-            letter.addEventListener("click", deleteLetter);
-        }
+        letter.textContent = chosenCharacter;
+        letter.style.left = x + "px";
+        letter.style.top = y + "px";
 
 
 
@@ -68,6 +75,6 @@ namespace L02_BlackmailerCompanion {
 
     //3. wenn div#mail geklickt wird --> ist target div#mail oder letter? 
     // --> dann entscheiden: soll place oder deleteletter aufgerufen werden`?
-//
+    //
 
 }

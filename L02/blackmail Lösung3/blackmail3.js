@@ -7,25 +7,32 @@ var L02_BlackmailerCompanion;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         mail = document.querySelector("div#mail");
-        mail.addEventListener("click", placeLetter);
+        mail.addEventListener("click", handleClick);
         document.addEventListener("keydown", chooseCharacter); //mehrere Objekte mit gleichem Namen ändern: F2
+    }
+    function handleClick(_event) {
+        let target = _event.target;
+        console.log(target);
+        if (target == mail) {
+            placeLetter(_event);
+        }
+        else {
+            deleteLetter(_event);
+        }
     }
     //Handler geben meist keinen wert zurück --> typ: void
     function placeLetter(_event) {
         console.log(_event);
-        if (_event.target == _event.currentTarget) {
-            //offset x und offset y --> position bezogen auf Elternelement (hier: div)
-            //Elternelement muss positionierung tragen 
-            let x = _event.offsetX;
-            let y = _event.offsetY;
-            mail = _event.target;
-            let letter = document.createElement("span");
-            mail.appendChild(letter);
-            letter.textContent = chosenCharacter;
-            letter.style.left = x + "px";
-            letter.style.top = y + "px";
-            letter.addEventListener("click", deleteLetter);
-        }
+        //offset x und offset y --> position bezogen auf Elternelement (hier: div)
+        //Elternelement muss positionierung tragen 
+        let x = _event.offsetX;
+        let y = _event.offsetY;
+        mail = _event.target;
+        let letter = document.createElement("span");
+        mail.appendChild(letter);
+        letter.textContent = chosenCharacter;
+        letter.style.left = x + "px";
+        letter.style.top = y + "px";
     }
     // Strg+# für ausklammern
     function chooseCharacter(_event) {
@@ -48,4 +55,4 @@ var L02_BlackmailerCompanion;
     // --> dann entscheiden: soll place oder deleteletter aufgerufen werden`?
     //
 })(L02_BlackmailerCompanion || (L02_BlackmailerCompanion = {}));
-//# sourceMappingURL=blackmail.js.map
+//# sourceMappingURL=blackmail3.js.map
