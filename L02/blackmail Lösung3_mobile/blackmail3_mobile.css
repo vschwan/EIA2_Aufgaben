@@ -1,0 +1,54 @@
+
+
+
+html, body{
+    height: 100%;
+    margin: 0 8px;
+}
+
+body{
+    text-align: center;
+    display: grid;
+    grid-template-rows: min-content min-content auto;
+}
+
+div#mail{
+    border: thin solid black;
+    background-color: beige;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+div#keyboard{
+    position: relative;
+    top:0px;
+    left: 0px;
+    border: thin solid black;
+}
+
+.letter{
+    font-size: 6em;
+    position: absolute;
+    border: thin dotted black;
+}
+
+.letterkeyb{
+    display: inline-block;
+    position: relative;
+    font-size: 5em;
+}
+
+
+@media screen and (min-width: 450px) {
+    
+}
+
+@media screen and (max-width: 450px) {
+    body {
+      background-color: rgb(255, 0, 200);
+    }
+  }
+
+
+

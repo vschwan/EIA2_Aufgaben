@@ -1,14 +1,26 @@
 "use strict";
-var L02_BlackmailerCompanion_L3;
-(function (L02_BlackmailerCompanion_L3) {
+var L02_BlackmailerCompanion_mobile;
+(function (L02_BlackmailerCompanion_mobile) {
     console.log("Start");
     let mail;
+    let keyboard;
     let chosenCharacter = "A";
+    let alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         mail = document.querySelector("div#mail");
         mail.addEventListener("click", handleClick);
         document.addEventListener("keydown", chooseCharacter); //mehrere Objekte mit gleichem Namen ändern: F2
+        // generate keyboard
+        keyboard = document.querySelector("div#keyboard");
+        for (let k = 0; k < alphabet.length; k++) {
+            let span = document.createElement("span");
+            span.className = "letterkeyb";
+            let letterkeyb = "";
+            letterkeyb += alphabet[k];
+            span.textContent = letterkeyb;
+            keyboard.appendChild(span);
+        }
     }
     function handleClick(_event) {
         let target = _event.target;
@@ -29,6 +41,7 @@ var L02_BlackmailerCompanion_L3;
         let y = _event.offsetY;
         mail = _event.target;
         let letter = document.createElement("span");
+        letter.className = "letter";
         mail.appendChild(letter);
         letter.textContent = chosenCharacter;
         letter.style.left = x + "px";
@@ -54,5 +67,5 @@ var L02_BlackmailerCompanion_L3;
     //3. wenn div#mail geklickt wird --> ist target div#mail oder letter? 
     // --> dann entscheiden: soll place oder deleteletter aufgerufen werden`?
     //
-})(L02_BlackmailerCompanion_L3 || (L02_BlackmailerCompanion_L3 = {}));
-//# sourceMappingURL=blackmail3.js.map
+})(L02_BlackmailerCompanion_mobile || (L02_BlackmailerCompanion_mobile = {}));
+//# sourceMappingURL=blackmail3_mobile.js.map
