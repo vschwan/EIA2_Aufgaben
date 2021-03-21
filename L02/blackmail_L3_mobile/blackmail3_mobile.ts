@@ -29,10 +29,6 @@ namespace L02_BlackmailerCompanion_mobile {
 
     }
 
-
-
-
-
     function handleClick(_event: MouseEvent): void {
 
         let target: Node = <Node>_event.target;
@@ -43,6 +39,7 @@ namespace L02_BlackmailerCompanion_mobile {
         else {
             deleteLetter(_event);
         }
+        
         // else 
     }
 
