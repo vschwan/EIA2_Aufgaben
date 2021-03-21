@@ -4,6 +4,7 @@
 html, body{
     height: 100%;
     margin: 0 8px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body{
@@ -11,6 +12,8 @@ body{
     display: grid;
     grid-template-rows: min-content min-content auto;
 }
+
+
 
 div#mail{
     border: thin solid black;
@@ -33,21 +36,41 @@ div#keyboard{
     border: thin dotted black;
 }
 
-.letterkeyb{
-    display: inline-block;
-    position: relative;
-    font-size: 5em;
-}
 
 
 @media screen and (min-width: 450px) {
     
+.letterkeyb{
+    display: none;
+    position: relative;
+    font-size: 5em;
+    pointer-events: none;
+   
+}
+
 }
 
 @media screen and (max-width: 450px) {
     body {
-      background-color: rgb(255, 0, 200);
+      background-color: rgb(252, 190, 238);
     }
+
+    .letterkeyb{
+        display: inline-block;
+        position: relative;
+        font-size: 1em;
+        border: 1px solid black;
+        margin: 1px;
+        padding: 0px 7px;
+        background-color: rgb(240, 237, 232);
+        pointer-events: auto;
+        
+    }
+
+    .letterkeyb :hover{
+        background-color: rgb(140, 235, 225);
+    }
+    
   }
 
 

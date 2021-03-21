@@ -5,18 +5,21 @@ namespace L02_BlackmailerCompanion_mobile {
     let keyboard: HTMLDivElement;
     let chosenCharacter: string = "A";
     let alphabet: string[] = [..."abcdefghijklmnopqrstuvwxyz"];
-    
+    let span: HTMLSpanElement;
+
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
         mail = <HTMLDivElement>document.querySelector("div#mail");
-        mail.addEventListener("click", handleClick);
+        // mail.addEventListener("click", handleClick);
         document.addEventListener("keydown", chooseCharacter);  //mehrere Objekte mit gleichem Namen ändern: F2
+        document.addEventListener("click", handleClick);
+
 
         // generate keyboard
         keyboard = <HTMLDivElement>document.querySelector("div#keyboard");
         for (let k: number = 0; k < alphabet.length; k++) {
-            let span: HTMLSpanElement = document.createElement("span");
+            span = <HTMLSpanElement>document.createElement("span");
             span.className = "letterkeyb";
             let letterkeyb: string = "";
             letterkeyb += alphabet[k];
@@ -25,19 +28,22 @@ namespace L02_BlackmailerCompanion_mobile {
         }
 
     }
-    
+
+
 
 
 
     function handleClick(_event: MouseEvent): void {
+
         let target: Node = <Node>_event.target;
         console.log(target);
-        if (target == mail) {
+        if (target == mail || target == span) {
             placeLetter(_event);
         }
         else {
             deleteLetter(_event);
         }
+        // else 
     }
 
 
@@ -58,9 +64,6 @@ namespace L02_BlackmailerCompanion_mobile {
         letter.style.left = x + "px";
         letter.style.top = y + "px";
 
-
-
-
     }
 
     // Strg+# für ausklammern
@@ -76,22 +79,7 @@ namespace L02_BlackmailerCompanion_mobile {
         let parent: Node = <Node>target.parentNode;
         parent.removeChild(target);
         // _event.stopPropagation();
-
-
     }
 
-    //Problem: durch die Bubble Phase bei klick auf letter wird auch dei funktion placeLetter getriggert 
-    // und ein Buchstabe wird an den bereits gelöschten Buchstaben gehängt
-
-    // Lösungen:
-
-    //1. _event.stopPropagation();
-
-    //2. fragen ob target und currenttarget gleich sind --> nur dann letter platzieren
-
-
-    //3. wenn div#mail geklickt wird --> ist target div#mail oder letter? 
-    // --> dann entscheiden: soll place oder deleteletter aufgerufen werden`?
-    //
 
 }

@@ -6,15 +6,17 @@ var L02_BlackmailerCompanion_mobile;
     let keyboard;
     let chosenCharacter = "A";
     let alphabet = [..."abcdefghijklmnopqrstuvwxyz"];
+    let span;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         mail = document.querySelector("div#mail");
-        mail.addEventListener("click", handleClick);
+        // mail.addEventListener("click", handleClick);
         document.addEventListener("keydown", chooseCharacter); //mehrere Objekte mit gleichem Namen ändern: F2
+        document.addEventListener("click", handleClick);
         // generate keyboard
         keyboard = document.querySelector("div#keyboard");
         for (let k = 0; k < alphabet.length; k++) {
-            let span = document.createElement("span");
+            span = document.createElement("span");
             span.className = "letterkeyb";
             let letterkeyb = "";
             letterkeyb += alphabet[k];
@@ -25,12 +27,13 @@ var L02_BlackmailerCompanion_mobile;
     function handleClick(_event) {
         let target = _event.target;
         console.log(target);
-        if (target == mail) {
+        if (target == mail || target == span) {
             placeLetter(_event);
         }
         else {
             deleteLetter(_event);
         }
+        // else 
     }
     //Handler geben meist keinen wert zurück --> typ: void
     function placeLetter(_event) {
@@ -59,13 +62,5 @@ var L02_BlackmailerCompanion_mobile;
         parent.removeChild(target);
         // _event.stopPropagation();
     }
-    //Problem: durch die Bubble Phase bei klick auf letter wird auch dei funktion placeLetter getriggert 
-    // und ein Buchstabe wird an den bereits gelöschten Buchstaben gehängt
-    // Lösungen:
-    //1. _event.stopPropagation();
-    //2. fragen ob target und currenttarget gleich sind --> nur dann letter platzieren
-    //3. wenn div#mail geklickt wird --> ist target div#mail oder letter? 
-    // --> dann entscheiden: soll place oder deleteletter aufgerufen werden`?
-    //
 })(L02_BlackmailerCompanion_mobile || (L02_BlackmailerCompanion_mobile = {}));
 //# sourceMappingURL=blackmail3_mobile.js.map
