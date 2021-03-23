@@ -33,13 +33,17 @@ namespace L02_BlackmailerCompanion_mobile {
 
         let target: Node = <Node>_event.target;
         console.log(target);
-        if (target == mail || target == span) {
+ 
+  
+        if (target == mail) {
             placeLetter(_event);
         }
-        else {
+        else if (target == span) {
+           console.log("now place the letter by touching the window");
+        } else {
             deleteLetter(_event);
         }
-        
+
         // else 
     }
 

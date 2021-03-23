@@ -27,8 +27,11 @@ var L02_BlackmailerCompanion_mobile;
     function handleClick(_event) {
         let target = _event.target;
         console.log(target);
-        if (target == mail || target == span) {
+        if (target == mail) {
             placeLetter(_event);
+        }
+        else if (target == span) {
+            console.log("now place the letter by touching the window");
         }
         else {
             deleteLetter(_event);
