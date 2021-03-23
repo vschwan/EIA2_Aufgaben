@@ -9,4 +9,4 @@ var übungenL02;
         console.log(_event);
     }
 })(übungenL02 || (übungenL02 = {}));
-//# sourceMappingURL=l02.js.map
+//# sourceMappingURL=TestL02.js.map
