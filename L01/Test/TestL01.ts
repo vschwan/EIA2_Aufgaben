@@ -1,4 +1,4 @@
-namespace übungenL01 {
+namespace TestL01 {
 
 
     window.addEventListener("load", handleLoad);

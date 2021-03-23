@@ -1,6 +1,6 @@
 "use strict";
-var übungenL01;
-(function (übungenL01) {
+var TestL01;
+(function (TestL01) {
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let v = 1;
@@ -19,5 +19,5 @@ var übungenL01;
         k1 = { x: 3, y: 8, meaning: "test" };
         console.log(k1, k2);
     }
-})(übungenL01 || (übungenL01 = {}));
-//# sourceMappingURL=%C3%BCbung.js.map
+})(TestL01 || (TestL01 = {}));
+//# sourceMappingURL=TestL01.js.map
