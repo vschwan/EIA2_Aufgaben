@@ -24,14 +24,16 @@ var RandomPoet_L02;
         console.log(_verse);
         return _verse;
     }
-    /*FRAGEN
-    Schneide mit splice(...) ein Wort aus dem übergebenen Array von Subjekten an der Stelle der Zufallszahl heraus
-    und addiere es zur deiner Vers-Variablen. Achte darauf, das splice dir immer ein Array
-    mit den ausgeschnittenen Elementen liefert, Du musst also davon das 0-te nehmen.
-    
-    Lasse deine Vers-Variable von der Funktion zurück geben, nicht mehr einen literalen Wert
-
-    
-    */
 })(RandomPoet_L02 || (RandomPoet_L02 = {}));
+/*FRAGEN
+Schneide mit splice(...) ein Wort aus dem übergebenen Array von Subjekten an der Stelle der Zufallszahl heraus
+und addiere es zur deiner Vers-Variablen. Achte darauf, das splice dir immer ein Array
+mit den ausgeschnittenen Elementen liefert, Du musst also davon das 0-te nehmen.
+
+Lasse deine Vers-Variable von der Funktion zurück geben, nicht mehr einen literalen Wert
+
+Aktiviere wieder die Ausgabe des Funktionsergebnisses in der Schleife
+
+
+*/ 
 //# sourceMappingURL=RandomPoem.js.map

@@ -15,10 +15,10 @@ namespace RandomPoet_L02 {
         // console.log(i);
 
         getVerse(subject, predicate, object, verse);
+       
     }
 
     function getVerse(_subject: string[], _predicate: string[], _object: string[], _verse: string): string {
-
 
         let nSubject: number = Math.floor(Math.random() * _subject.length);
         _verse += _subject.splice(nSubject, 1) + " ";
@@ -35,8 +35,8 @@ namespace RandomPoet_L02 {
     } 
    
 
+}
 
-   
 
     /*FRAGEN
     Schneide mit splice(...) ein Wort aus dem übergebenen Array von Subjekten an der Stelle der Zufallszahl heraus 
@@ -45,8 +45,7 @@ namespace RandomPoet_L02 {
     
     Lasse deine Vers-Variable von der Funktion zurück geben, nicht mehr einen literalen Wert
 
+    Aktiviere wieder die Ausgabe des Funktionsergebnisses in der Schleife
+
     
     */
-
-
-}
