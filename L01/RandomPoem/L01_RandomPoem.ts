@@ -13,13 +13,11 @@ namespace RandomPoet_L02 {
     }
 
     function getVerse(_subject: string[], _predicate: string[], _object: string[]): string {
-        let verse: string = "";
-
         let nSubject: number = Math.floor(Math.random() * _subject.length);
         let nPredicate: number = Math.floor(Math.random() * _predicate.length);
         let nObject: number = Math.floor(Math.random() * _object.length);
 
-        verse = _subject.splice(nSubject, 1) + " "
+        let verse: string = _subject.splice(nSubject, 1) + " "
             + _predicate.splice(nPredicate, 1) + " "
             + _object.splice(nObject, 1) + "!";
 

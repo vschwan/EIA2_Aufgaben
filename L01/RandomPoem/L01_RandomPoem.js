@@ -11,11 +11,10 @@ var RandomPoet_L02;
         console.log(output);
     }
     function getVerse(_subject, _predicate, _object) {
-        let verse = "";
         let nSubject = Math.floor(Math.random() * _subject.length);
         let nPredicate = Math.floor(Math.random() * _predicate.length);
         let nObject = Math.floor(Math.random() * _object.length);
-        verse = _subject.splice(nSubject, 1) + " "
+        let verse = _subject.splice(nSubject, 1) + " "
             + _predicate.splice(nPredicate, 1) + " "
             + _object.splice(nObject, 1) + "!";
         // console.log(verse);
