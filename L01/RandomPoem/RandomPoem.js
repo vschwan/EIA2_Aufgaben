@@ -5,24 +5,24 @@ var RandomPoet_L02;
     let subject = ["Gandalf", "Bilbo", "Legolas", "Gimli", "Gollum", "Aragorn"];
     let predicate = ["sucht", "findet", "liebt", "hasst", "verflucht", "vernichtet"];
     let object = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mittelerde", "die Adler"];
-    let verse = "";
     // console.log(subject, predicate, object);
     for (let i = 6; i <= object.length; i--) {
         if (i == 0) {
             break;
         }
         // console.log(i);
-        getVerse(subject, predicate, object, verse);
+        getVerse(subject, predicate, object);
     }
-    function getVerse(_subject, _predicate, _object, _verse) {
+    function getVerse(_subject, _predicate, _object) {
+        let verse = "";
         let nSubject = Math.floor(Math.random() * _subject.length);
-        _verse += _subject.splice(nSubject, 1) + " ";
+        verse += _subject.splice(nSubject, 1) + " ";
         let nPredicate = Math.floor(Math.random() * _subject.length);
-        _verse += _predicate.splice(nPredicate, 1) + " ";
+        verse += _predicate.splice(nPredicate, 1) + " ";
         let nObject = Math.floor(Math.random() * _subject.length);
-        _verse += _object.splice(nObject, 1);
-        console.log(_verse);
-        return _verse;
+        verse += _object.splice(nObject, 1);
+        console.log(verse);
+        return verse;
     }
 })(RandomPoet_L02 || (RandomPoet_L02 = {}));
 /*FRAGEN
