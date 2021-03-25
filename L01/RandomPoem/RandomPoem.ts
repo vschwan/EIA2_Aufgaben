@@ -2,8 +2,8 @@ namespace RandomPoet_L02 {
     console.log("Hallo, du oller Hobbit");
 
     let subject: string[] = ["Gandalf", "Bilbo", "Legolas", "Gimli", "Gollum", "Aragorn"];
-    let predicate: string[] = ["sucht", "findet", "liebt", "hasst", "verflucht", "vernichtet"];
-    let object: string[] = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mittelerde", "die Adler"];
+    let predicate: string[] = ["sucht", "verzaubert", "liebt", "hasst", "verflucht", "vernichtet"];
+    let object: string[] = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mordor", "die Adler"];
    
 
     // console.log(subject, predicate, object);
