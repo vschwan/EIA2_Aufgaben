@@ -5,11 +5,8 @@ var RandomPoet_L02;
     let subject = ["Gandalf", "Bilbo", "Legolas", "Gimli", "Gollum", "Aragorn"];
     let predicate = ["sucht", "verzaubert", "liebt", "hasst", "verflucht", "vernichtet"];
     let object = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mordor", "die Adler"];
-    for (let i = object.length; i <= object.length; i--) {
-        if (i == 0) {
-            break;
-        }
-        //console.log(i);
+    for (let i = object.length; i > 0; i--) {
+        // console.log(i);
         let output = getVerse(subject, predicate, object);
         console.log(output);
     }

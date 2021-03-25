@@ -5,14 +5,11 @@ namespace RandomPoet_L02 {
     let predicate: string[] = ["sucht", "verzaubert", "liebt", "hasst", "verflucht", "vernichtet"];
     let object: string[] = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mordor", "die Adler"];
 
-    for (let i: number = object.length; i <= object.length; i--) {
-        if (i == 0) {
-            break;
-        }
-        //console.log(i);
+    for (let i: number = object.length; i > 0; i--) {
+       // console.log(i);
         let output: string = getVerse(subject, predicate, object);
+       
         console.log(output);
-
     }
 
     function getVerse(_subject: string[], _predicate: string[], _object: string[]): string {
