@@ -18,7 +18,9 @@ var RandomPoet_L02;
         let nSubject = Math.floor(Math.random() * _subject.length);
         let nPredicate = Math.floor(Math.random() * _predicate.length);
         let nObject = Math.floor(Math.random() * _object.length);
-        verse = _subject.splice(nSubject, 1) + " " + _predicate.splice(nPredicate, 1) + " " + +_object.splice(nObject, 1) + "!";
+        verse = _subject.splice(nSubject, 1) + " "
+            + _predicate.splice(nPredicate, 1) + " "
+            + _object.splice(nObject, 1) + "!";
         // console.log(verse);
         return verse;
     }

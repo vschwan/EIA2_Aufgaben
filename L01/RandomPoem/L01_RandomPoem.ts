@@ -22,9 +22,9 @@ namespace RandomPoet_L02 {
         let nPredicate: number = Math.floor(Math.random() * _predicate.length);
         let nObject: number = Math.floor(Math.random() * _object.length);
 
-        verse = _subject.splice(nSubject, 1) + " " + _predicate.splice(nPredicate, 1) + " " + +_object.splice(nObject, 1) + "!";
-
-
+        verse = _subject.splice(nSubject, 1) + " " 
+                + _predicate.splice(nPredicate, 1) + " "  
+                + _object.splice(nObject, 1) + "!";
 
         // console.log(verse);
         return verse;
