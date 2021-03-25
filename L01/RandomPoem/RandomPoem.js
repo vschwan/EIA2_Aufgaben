@@ -6,12 +6,13 @@ var RandomPoet_L02;
     let predicate = ["sucht", "verzaubert", "liebt", "hasst", "verflucht", "vernichtet"];
     let object = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mordor", "die Adler"];
     // console.log(subject, predicate, object);
-    for (let i = 6; i <= object.length; i--) {
+    for (let i = object.length; i <= object.length; i--) {
         if (i == 0) {
             break;
         }
         // console.log(i);
-        getVerse(subject, predicate, object);
+        let output = getVerse(subject, predicate, object);
+        console.log(output);
     }
     function getVerse(_subject, _predicate, _object) {
         let verse = "";
@@ -21,7 +22,7 @@ var RandomPoet_L02;
         verse += _predicate.splice(nPredicate, 1) + " ";
         let nObject = Math.floor(Math.random() * _subject.length);
         verse += _object.splice(nObject, 1);
-        console.log(verse);
+        // console.log(verse);
         return verse;
     }
 })(RandomPoet_L02 || (RandomPoet_L02 = {}));
@@ -29,10 +30,6 @@ var RandomPoet_L02;
 Schneide mit splice(...) ein Wort aus dem übergebenen Array von Subjekten an der Stelle der Zufallszahl heraus
 und addiere es zur deiner Vers-Variablen. Achte darauf, das splice dir immer ein Array
 mit den ausgeschnittenen Elementen liefert, Du musst also davon das 0-te nehmen.
-
-Lasse deine Vers-Variable von der Funktion zurück geben, nicht mehr einen literalen Wert
-
-Aktiviere wieder die Ausgabe des Funktionsergebnisses in der Schleife
 
 
 */ 

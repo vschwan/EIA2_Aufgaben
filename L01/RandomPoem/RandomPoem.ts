@@ -8,13 +8,13 @@ namespace RandomPoet_L02 {
 
     // console.log(subject, predicate, object);
 
-    for (let i: number = 6; i <= object.length; i--) {
+    for (let i: number = object.length; i <= object.length; i--) {
         if (i == 0) {
             break;
         } 
         // console.log(i);
-
-        getVerse(subject, predicate, object);
+        let output: string = getVerse(subject, predicate, object);
+        console.log(output);
      
     }
 
@@ -29,7 +29,8 @@ namespace RandomPoet_L02 {
         let nObject: number = Math.floor(Math.random() * _subject.length);
         verse += _object.splice(nObject, 1);
 
-        console.log(verse);
+
+       // console.log(verse);
         return verse;
 
     } 
@@ -42,10 +43,6 @@ namespace RandomPoet_L02 {
     Schneide mit splice(...) ein Wort aus dem übergebenen Array von Subjekten an der Stelle der Zufallszahl heraus 
     und addiere es zur deiner Vers-Variablen. Achte darauf, das splice dir immer ein Array 
     mit den ausgeschnittenen Elementen liefert, Du musst also davon das 0-te nehmen.
-    
-    Lasse deine Vers-Variable von der Funktion zurück geben, nicht mehr einen literalen Wert
-
-    Aktiviere wieder die Ausgabe des Funktionsergebnisses in der Schleife
 
     
     */
