@@ -9,7 +9,7 @@ var RandomPoet_L02;
         if (i == 0) {
             break;
         }
-        // console.log(i);
+        //console.log(i);
         let output = getVerse(subject, predicate, object);
         console.log(output);
     }
