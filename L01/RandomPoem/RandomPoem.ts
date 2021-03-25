@@ -1,5 +1,5 @@
 namespace RandomPoet_L02 {
-    console.log("Hallo, du oller Hobbit");
+    //console.log("Hallo, du oller Hobbit");
 
     let subject: string[] = ["Gandalf", "Bilbo", "Legolas", "Gimli", "Gollum", "Aragorn"];
     let predicate: string[] = ["sucht", "verzaubert", "liebt", "hasst", "verflucht", "vernichtet"];
@@ -11,7 +11,7 @@ namespace RandomPoet_L02 {
     for (let i: number = 6; i <= object.length; i--) {
         if (i == 0) {
             break;
-        }
+        } 
         // console.log(i);
 
         getVerse(subject, predicate, object);

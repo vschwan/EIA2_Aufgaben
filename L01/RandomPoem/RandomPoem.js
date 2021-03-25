@@ -1,10 +1,10 @@
 "use strict";
 var RandomPoet_L02;
 (function (RandomPoet_L02) {
-    console.log("Hallo, du oller Hobbit");
+    //console.log("Hallo, du oller Hobbit");
     let subject = ["Gandalf", "Bilbo", "Legolas", "Gimli", "Gollum", "Aragorn"];
-    let predicate = ["sucht", "findet", "liebt", "hasst", "verflucht", "vernichtet"];
-    let object = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mittelerde", "die Adler"];
+    let predicate = ["sucht", "verzaubert", "liebt", "hasst", "verflucht", "vernichtet"];
+    let object = ["den Ring", "den Schicksalsberg", "Elben", "Sauron", "Mordor", "die Adler"];
     // console.log(subject, predicate, object);
     for (let i = 6; i <= object.length; i--) {
         if (i == 0) {
