@@ -16,21 +16,11 @@ var RandomPoet_L02;
     }
     function getVerse(_subject, _predicate, _object) {
         let verse = "";
-        let nSubject = Math.floor(Math.random() * _subject.length);
-        verse += _subject.splice(nSubject, 1) + " ";
-        let nPredicate = Math.floor(Math.random() * _subject.length);
-        verse += _predicate.splice(nPredicate, 1) + " ";
-        let nObject = Math.floor(Math.random() * _subject.length);
-        verse += _object.splice(nObject, 1);
-        // console.log(verse);
+        let calc = Math.floor(Math.random() * _subject.length);
+        verse = _subject.splice(calc, 1) + " "
+            + _predicate.splice(calc, 1) + " "
+            + _object.splice(calc, 1) + "!";
         return verse;
     }
 })(RandomPoet_L02 || (RandomPoet_L02 = {}));
-/*FRAGEN
-Schneide mit splice(...) ein Wort aus dem übergebenen Array von Subjekten an der Stelle der Zufallszahl heraus
-und addiere es zur deiner Vers-Variablen. Achte darauf, das splice dir immer ein Array
-mit den ausgeschnittenen Elementen liefert, Du musst also davon das 0-te nehmen.
-
-
-*/ 
 //# sourceMappingURL=L01_RandomPoem.js.map
