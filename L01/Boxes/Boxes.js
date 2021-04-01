@@ -1,6 +1,6 @@
 "use strict";
-var L01_Boxes;
-(function (L01_Boxes) {
+var Boxes;
+(function (Boxes) {
     let n = 5;
     let color;
     let x = 0;
@@ -11,13 +11,13 @@ var L01_Boxes;
         switch (i) {
             case 0:
                 color = "#ff0000";
-                break;
+                break; //jump out of switch() statement, break the loop -->
             case 1:
             case 4:
                 color = "#00ff00";
                 break;
             case 3:
-                continue;
+                continue; //breaks one iteration in the loop and continues with the next iteration in the loop
             default:
                 color = "#0000ff";
         }
@@ -35,5 +35,5 @@ var L01_Boxes;
         div.style.left = _x + "px";
         div.style.top = _y + "px";
     }
-})(L01_Boxes || (L01_Boxes = {}));
-//# sourceMappingURL=L01_Boxes.js.map
+})(Boxes || (Boxes = {}));
+//# sourceMappingURL=Boxes.js.map
