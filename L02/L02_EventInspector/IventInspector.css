@@ -1,0 +1,21 @@
+
+
+div{
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    background: #f0e5bf;
+    position: relative;
+    border: thin solid black;
+    margin: 10px;
+
+}
+
+button{
+    position:absolute;
+ 
+}
+
+span{
+    position: absolute;
+}
