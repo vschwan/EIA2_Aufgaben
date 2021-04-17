@@ -23,61 +23,59 @@ namespace L02_IventInspector {
 
 
         let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
-        button.addEventListener("click", handleButton);
+        // button.addEventListener("click", handleButton);
 
 
-        /*
-                let myEvent: CustomEvent = new CustomEvent("myevent", {
-                    detail: {target: () => myEvent.currentTarget},
-                    bubbles: true,
-                    cancelable: true
-                });
-        
-                document.addEventListener("myevent", e => console.log(e.detail.target()));
-                button.dispatchEvent(myEvent);
-        
-        
-        
-                button.addEventListener("myevent", function (_event: Event): void {
-                    console.log("hello");
-                });*/
-
-    }
-
-    function handleButton(_event: Event): void {
 
         let myEvent: CustomEvent = new CustomEvent("myevent", {
-            detail: {},
             bubbles: true,
-            cancelable: true
+            detail: {key: () => myEvent.target}
         });
 
-        let target: EventTarget = <EventTarget>_event.target;
-        console.log(target);
-        document.dispatchEvent(myEvent);
-        /*console.log(myEvent.currentTarget);
-         console.log(myEvent.eventPhase);*/
-        console.log(myEvent);
-        //console.log(target);
-    }
+        document.addEventListener("myevent", e => {
+            console.log(e.detail.key);
+        });
 
-    function setInfoBox(_event: MouseEvent): void {
-        let position: string = "x:" + _event.clientX + "y:" + _event.clientY;
-        let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector("span");
-        //console.log(_event.currentTarget, position);
-        span.innerHTML = position + "<br>" + _event.target;
 
-        console.log(span.offsetLeft, span.offsetTop);
-        span.style.left = _event.clientX + "px";
-        span.style.top = _event.clientY + "px";
+        button.addEventListener("click", e => {
+            e.target.dispatchEvent(myEvent);
+        });
 
     }
+    /*
+      function handleButton(_event: Event): void {
+    
+            let myEvent: CustomEvent = new CustomEvent("myevent", {
+                detail: {},
+                bubbles: true,
+                cancelable: true
+            });
+    
+            let target: EventTarget = <EventTarget>_event.target;
+            console.log(target);
+            document.dispatchEvent(myEvent);
+            //console.log(myEvent.currentTarget);
+          //   console.log(myEvent.eventPhase);
+            console.log(myEvent);
+            //console.log(target);*/
+}
 
-    function logInfo(_event: Event): void {
-        console.log("Current Target: " + _event.currentTarget, "Target: " + _event.target, "Event Type: " + _event.type, "Event: " + _event);
-    }
+function setInfoBox(_event: MouseEvent): void {
+    let position: string = "x:" + _event.clientX + "y:" + _event.clientY;
+    let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector("span");
+    //console.log(_event.currentTarget, position);
+    span.innerHTML = position + "<br>" + _event.target;
 
-
-
+    console.log(span.offsetLeft, span.offsetTop);
+    span.style.left = _event.clientX + "px";
+    span.style.top = _event.clientY + "px";
 
 }
+
+function logInfo(_event: Event): void {
+    console.log("Current Target: " + _event.currentTarget, "Target: " + _event.target, "Event Type: " + _event.type, "Event: " + _event);
+}
+
+
+
+
