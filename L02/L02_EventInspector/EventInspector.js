@@ -50,7 +50,6 @@ var L02_IventInspector;
     }
     function setInfoBox(_event) {
         let position = "x:" + _event.clientX + "y:" + _event.clientY;
-        // let target: EventTarget = <EventTarget> _event.target;
         let span = document.querySelector("span");
         //console.log(_event.currentTarget, position);
         span.innerHTML = position + "<br>" + _event.target;

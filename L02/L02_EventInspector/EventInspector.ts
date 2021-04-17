@@ -42,9 +42,6 @@ namespace L02_IventInspector {
                     console.log("hello");
                 });*/
 
-
-
-
     }
 
     function handleButton(_event: Event): void {
@@ -64,15 +61,8 @@ namespace L02_IventInspector {
         //console.log(target);
     }
 
-
-
-
-
-
-
     function setInfoBox(_event: MouseEvent): void {
         let position: string = "x:" + _event.clientX + "y:" + _event.clientY;
-        // let target: EventTarget = <EventTarget> _event.target;
         let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector("span");
         //console.log(_event.currentTarget, position);
         span.innerHTML = position + "<br>" + _event.target;
@@ -86,7 +76,6 @@ namespace L02_IventInspector {
     function logInfo(_event: Event): void {
         console.log("Current Target: " + _event.currentTarget, "Target: " + _event.target, "Event Type: " + _event.type, "Event: " + _event);
     }
-
 
 
 
