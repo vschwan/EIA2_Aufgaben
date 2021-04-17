@@ -1,0 +1,50 @@
+
+body{
+    height: 100%;
+    margin: 0 8px;
+}
+
+body{
+    margin: auto;
+    width: 800px;
+    background-color: ivory;
+    
+}
+
+#container{
+    text-align: center;
+    white-space: nowrap;
+}
+
+.box{
+    width: 50%;
+    height: 400px;
+    background: #eed3df;
+    position: relative;
+    border: thin solid black;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button{
+    position:absolute;
+    left: 50px;
+    top: 50px;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(56, 95, 95);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+ 
+}
+
+span{
+    height:60px;
+    width: 150px;
+    background-color:lightblue;
+    border: thin solid black;
+    position:absolute;
+}
