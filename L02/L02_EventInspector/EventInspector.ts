@@ -29,7 +29,7 @@ namespace L02_IventInspector {
 
         let myEvent: CustomEvent = new CustomEvent("myevent", {
             bubbles: true,
-            detail: {key: () => myEvent.target}
+            detail: {key: () => myEvent.currentTarget}
         });
 
         document.addEventListener("myevent", e => {

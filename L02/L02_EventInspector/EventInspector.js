@@ -20,7 +20,7 @@ var L02_IventInspector;
         // button.addEventListener("click", handleButton);
         let myEvent = new CustomEvent("myevent", {
             bubbles: true,
-            detail: { key: () => myEvent.target }
+            detail: { key: () => myEvent.currentTarget }
         });
         document.addEventListener("myevent", e => {
             console.log(e.detail.key);

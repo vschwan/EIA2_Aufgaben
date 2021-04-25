@@ -1,0 +1,25 @@
+
+
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  height: 300px;
+  width: 400px;
+
+}
+
+
+span{
+    font-size: 6em;
+    position: absolute;
+    border: thin solid rgb(155, 139, 49);
+    background-color: rgb(235, 235, 158);
+    width: 100px;
+    height: 100px;
+    
+}
+
+.cardstyle{
+    visibility: hidden;
+;
+}
