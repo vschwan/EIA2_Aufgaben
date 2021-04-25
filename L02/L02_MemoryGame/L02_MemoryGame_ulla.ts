@@ -18,7 +18,7 @@ namespace L02_MemoryGame {
             getCards();
             startTimer();
 
-        }
+        } 
 
 
 
