@@ -16,18 +16,18 @@ var L02_IventInspector;
         for (let i = 0; i < div0.length; i++) {
             div0[i].addEventListener("click", logInfo);
         }
-        let button = document.querySelector("button");
+        //    let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
         // button.addEventListener("click", handleButton);
         let myEvent = new CustomEvent("myevent", {
             bubbles: true,
             detail: { key: () => myEvent.currentTarget }
         });
-        document.addEventListener("myevent", e => {
-            console.log(e.detail.key);
-        });
-        button.addEventListener("click", e => {
-            e.target.dispatchEvent(myEvent);
-        });
+        //    document.addEventListener("myevent", e => {
+        //        console.log(e.detail.key);
+        //    });
+        //    button.addEventListener("click", e => {
+        //        e.target.dispatchEvent(myEvent);
+        //   });
     }
     /*
       function handleButton(_event: Event): void {

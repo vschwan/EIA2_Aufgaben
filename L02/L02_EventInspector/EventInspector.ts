@@ -22,7 +22,7 @@ namespace L02_IventInspector {
         }
 
 
-        let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
+    //    let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
         // button.addEventListener("click", handleButton);
 
 
@@ -32,14 +32,14 @@ namespace L02_IventInspector {
             detail: {key: () => myEvent.currentTarget}
         });
 
-        document.addEventListener("myevent", e => {
-            console.log(e.detail.key);
-        });
+    //    document.addEventListener("myevent", e => {
+    //        console.log(e.detail.key);
+    //    });
 
 
-        button.addEventListener("click", e => {
-            e.target.dispatchEvent(myEvent);
-        });
+    //    button.addEventListener("click", e => {
+    //        e.target.dispatchEvent(myEvent);
+     //   });
 
     }
     /*

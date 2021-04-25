@@ -13,8 +13,8 @@ namespace L02_MemoryGame {
 
     function handleLoad(): void {
 
-        let prompt: string = <string>window.prompt("Welcome to my Memory-Game <br> Choose how many matching pairs you want to have:", "5");
-        if (prompt != null) {
+        let pairsInput: string = <string>window.prompt("Welcome to my Memory-Game <br> Choose how many matching pairs you want to have:", "5");
+        if (pairsInput != null) {
             getCards();
             startTimer();
 
@@ -26,7 +26,8 @@ namespace L02_MemoryGame {
     }
 
     function getCards(): void {
-
+        let amountPairs: number = parseInt(pairsInput);
+        playingCardsOne = allCards.slice(0, amountPairs);
     }
 
     function startTimer(): void {

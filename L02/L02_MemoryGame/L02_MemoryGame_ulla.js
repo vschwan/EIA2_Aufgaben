@@ -9,13 +9,15 @@ var L02_MemoryGame;
     let clickedFirst;
     let clickedSecond;
     function handleLoad() {
-        let prompt = window.prompt("Welcome to my Memory-Game <br> Choose how many matching pairs you want to have:", "5");
-        if (prompt != null) {
+        let pairsInput = window.prompt("Welcome to my Memory-Game <br> Choose how many matching pairs you want to have:", "5");
+        if (pairsInput != null) {
             getCards();
             startTimer();
         }
     }
     function getCards() {
+        let amountPairs = parseInt(pairsInput);
+        playingCardsOne = allCards.slice(0, amountPairs);
     }
     function startTimer() {
     }
