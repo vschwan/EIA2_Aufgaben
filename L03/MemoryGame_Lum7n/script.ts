@@ -133,7 +133,7 @@ namespace valentina.Memory {
             matches.push(cardTwo);
 
         } else {
-          //  alert("wrong! try again.");
+            alert("wrong! try again.");
 
             card1.classList.remove("unhidden");
             card1.classList.add("hidden");
