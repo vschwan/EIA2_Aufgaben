@@ -13,38 +13,97 @@ var valentina;
         let matches = [];
         let card1;
         let card2;
-        let introduction;
+        let backgroundColor;
+        let cBackgroundColor = "";
+        let quantity;
+        let nPairs = 0;
+        let cardsize;
+        let nCardsize = 0;
+        let backsideCard;
+        let cBacksideCard = "";
+        let fontcolor;
+        let cFontcolor = "";
+        let font;
+        let vFont = "";
         let container;
         let startButton;
+        let form;
+        let info;
         window.addEventListener("load", handleLoad);
         function handleLoad() {
-            introduction = document.getElementById("introduction");
+            info = document.querySelector("p#info");
             container = document.getElementById("container");
+            form = document.querySelector("form");
             startButton = document.getElementById("startbtn");
+            //startButton.addEventListener("click", handleForm);
             startButton.addEventListener("click", generateContent);
         }
         function generateContent() {
-            introduction.style.display = "none";
-            startButton.style.display = "none";
-            let input = document.getElementById("number");
-            let nPairs = parseInt(input.value);
-            // console.log(nPairs);
+            let formData = new FormData(document.forms[0]);
+            for (let entry of formData) {
+                console.log(entry);
+                //console.log("name: " + entry[0]);
+                //console.log("value: " + entry[1]);
+                switch (entry[0]) {
+                    case "Quantity":
+                        quantity = document.querySelector("[name='" + entry[0] + "']");
+                        nPairs = parseFloat(quantity.value);
+                        // console.log(nPairs);
+                        break;
+                    case "SizeCards":
+                        cardsize = document.querySelector("[name='" + entry[0] + "']");
+                        nCardsize = Number(cardsize.value);
+                        //console.log(nCardsize);
+                        break;
+                    case "Backgroundcolor":
+                        backgroundColor = document.querySelector("[name='" + entry[0] + "']");
+                        cBackgroundColor = String(backgroundColor.value);
+                        //console.log(cBackgroundColor);
+                        break;
+                    case "BacksideCard":
+                        backsideCard = document.querySelector("[name='" + entry[0] + "']");
+                        cBacksideCard = String(backsideCard.value);
+                        //  console.log(cBacksideCard);
+                        break;
+                    case "Fontcolor":
+                        fontcolor = document.querySelector("[name='" + entry[0] + "']");
+                        cFontcolor = String(fontcolor.value);
+                        break;
+                    case "Fonts":
+                        font = document.querySelector("[value='" + entry[1] + "']");
+                        vFont = String(font.value);
+                        //   console.log(vFont);
+                        break;
+                    default:
+                        break;
+                }
+            }
             let amountCards = nPairs * 2;
             for (let i = 0; i < amountCards; i++) {
                 let oneLetterArray = allcards.slice(i, i + 1);
                 let oneLetter = oneLetterArray.toString();
                 playcards.push(oneLetter);
-                // console.log(playcards);
+                //  console.log(playcards);
             }
             shuffle(playcards);
             // console.log(playcards);
+            startButton.remove();
+            form.remove();
+            info.remove();
+            // formData
+            //display cards
             for (let k = 0; k < playcards.length; k++) {
                 let div = document.createElement("div");
                 div.classList.add("cardContainer");
-                div.style.backgroundColor = "#46469b";
+                div.style.backgroundColor = cBacksideCard;
+                div.style.fontFamily = vFont;
+                div.style.width = cardsize + "px";
+                div.style.height = cardsize + "px";
+                container.style.backgroundColor = cBackgroundColor;
                 let span = document.createElement("span");
                 span.innerHTML = playcards[k];
                 span.classList.add("unhidden");
+                span.style.color = cFontcolor;
                 let checkIfSecondLetter = document.getElementById(playcards[k] + "1");
                 if (checkIfSecondLetter == null) {
                     span.id = playcards[k] + "1";
@@ -70,6 +129,7 @@ var valentina;
                 if (allSpan[i].classList.contains("unhidden")) {
                     allSpan[i].classList.remove("unhidden");
                     allSpan[i].classList.add("hidden");
+                    allSpan[i].style.color = cBacksideCard;
                 }
             }
         }
@@ -81,6 +141,7 @@ var valentina;
             // console.log(targetSpan, targetID1, targetID2, targetID3);
             targetSpan.classList.remove("hidden");
             targetSpan.classList.add("unhidden");
+            targetSpan.style.color = cFontcolor;
             let onlyLetter = targetID1.slice(0, 1);
             chosenCards.push(onlyLetter);
             if (chosenCards.length == 1) {
@@ -106,11 +167,12 @@ var valentina;
                 matches.push(cardTwo);
             }
             else {
-                alert("wrong! try again.");
                 card1.classList.remove("unhidden");
                 card1.classList.add("hidden");
+                card1.style.color = cBacksideCard;
                 card2.classList.remove("unhidden");
                 card2.classList.add("hidden");
+                card2.style.color = cBacksideCard;
             }
             chosenCards = [];
             if (matches.length == playcards.length) {

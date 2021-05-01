@@ -13,49 +13,132 @@ namespace valentina.Memory {
     let card1: HTMLElement;
     let card2: HTMLElement;
 
-    let introduction: HTMLDivElement;
+    let backgroundColor: HTMLInputElement;
+    let cBackgroundColor: string = "";
+    let quantity: HTMLInputElement;
+    let nPairs: number = 0;
+    let cardsize: HTMLInputElement;
+    let nCardsize: number = 0;
+    let backsideCard: HTMLInputElement;
+    let cBacksideCard: string = "";
+    let fontcolor: HTMLInputElement;
+    let cFontcolor: string = "";
+    let font: HTMLInputElement;
+    let vFont: string = "";
+
     let container: HTMLDivElement;
     let startButton: HTMLButtonElement;
+    let form: HTMLFormElement;
+    let info: HTMLParagraphElement;
 
     window.addEventListener("load", handleLoad);
 
     function handleLoad(): void {
 
-        introduction = <HTMLDivElement>document.getElementById("introduction");
+        info = <HTMLParagraphElement>document.querySelector("p#info");
         container = <HTMLDivElement>document.getElementById("container");
-
+        form = <HTMLFormElement>document.querySelector("form");
         startButton = <HTMLButtonElement>document.getElementById("startbtn");
+
+        //startButton.addEventListener("click", handleForm);
         startButton.addEventListener("click", generateContent);
+
+
     }
+
+
+
 
 
     function generateContent(): void {
 
-        introduction.style.display = "none";
-        startButton.style.display = "none";
 
-        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("number");
-        let nPairs: number = <number>parseInt(input.value);
-        // console.log(nPairs);
+
+
+        let formData: FormData = new FormData(document.forms[0]);
+        for (let entry of formData) {
+            console.log(entry);
+            //console.log("name: " + entry[0]);
+            //console.log("value: " + entry[1]);
+
+            switch (entry[0]) {
+                case "Quantity":
+                    quantity = <HTMLInputElement>document.querySelector("[name='" + entry[0] + "']");
+                    nPairs = parseFloat(quantity.value);
+                    // console.log(nPairs);
+                    break;
+
+                case "SizeCards":
+                    cardsize = <HTMLInputElement>document.querySelector("[name='" + entry[0] + "']");
+                    nCardsize = Number(cardsize.value);
+                    //console.log(nCardsize);
+                    break;
+
+                case "Backgroundcolor":
+                    backgroundColor = <HTMLInputElement>document.querySelector("[name='" + entry[0] + "']");
+                    cBackgroundColor = String(backgroundColor.value);
+                    //console.log(cBackgroundColor);
+                    break;
+
+                case "BacksideCard":
+                    backsideCard = <HTMLInputElement>document.querySelector("[name='" + entry[0] + "']");
+                    cBacksideCard = String(backsideCard.value);
+                    //  console.log(cBacksideCard);
+                    break;
+
+                case "Fontcolor":
+                    fontcolor = <HTMLInputElement>document.querySelector("[name='" + entry[0] + "']");
+                    cFontcolor = String(fontcolor.value);
+                    break;
+
+                case "Fonts":
+                    font = <HTMLInputElement>document.querySelector("[value='" + entry[1] + "']");
+                    vFont = String(font.value);
+                    //   console.log(vFont);
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
         let amountCards: number = nPairs * 2;
 
         for (let i: number = 0; i < amountCards; i++) {
             let oneLetterArray: string[] = allcards.slice(i, i + 1);
             let oneLetter: string = oneLetterArray.toString();
             playcards.push(oneLetter);
-            // console.log(playcards);
+            //  console.log(playcards);
         }
         shuffle(playcards);
         // console.log(playcards);
 
+
+        startButton.remove();
+        form.remove();
+        info.remove();
+
+
+        // formData
+        //display cards
         for (let k: number = 0; k < playcards.length; k++) {
             let div: HTMLDivElement = document.createElement("div");
             div.classList.add("cardContainer");
-            div.style.backgroundColor = "#46469b";
+            div.style.backgroundColor = cBacksideCard;
+            div.style.fontFamily = vFont;
+
+            div.style.width = cardsize + "px";
+            div.style.height = cardsize + "px";
+
+
+            container.style.backgroundColor = cBackgroundColor;
+
+
 
             let span: HTMLSpanElement = document.createElement("span");
             span.innerHTML = playcards[k];
             span.classList.add("unhidden");
+            span.style.color = cFontcolor;
 
             let checkIfSecondLetter: HTMLElement = <HTMLElement>document.getElementById(playcards[k] + "1");
             if (checkIfSecondLetter == null) {
@@ -88,8 +171,9 @@ namespace valentina.Memory {
             if (allSpan[i].classList.contains("unhidden")) {
                 allSpan[i].classList.remove("unhidden");
                 allSpan[i].classList.add("hidden");
+                allSpan[i].style.color = cBacksideCard;
             }
-          }
+        }
     }
 
     function showLetters(_event: Event): void {
@@ -103,6 +187,9 @@ namespace valentina.Memory {
 
         targetSpan.classList.remove("hidden");
         targetSpan.classList.add("unhidden");
+        targetSpan.style.color = cFontcolor;
+
+
         let onlyLetter: string = targetID1.slice(0, 1);
         chosenCards.push(onlyLetter);
 
@@ -133,13 +220,14 @@ namespace valentina.Memory {
             matches.push(cardTwo);
 
         } else {
-            alert("wrong! try again.");
 
             card1.classList.remove("unhidden");
             card1.classList.add("hidden");
+            card1.style.color = cBacksideCard;
 
             card2.classList.remove("unhidden");
             card2.classList.add("hidden");
+            card2.style.color = cBacksideCard;
         }
 
         chosenCards = [];
