@@ -1,4 +1,7 @@
-namespace valentina.Memory {
+namespace L03_MemorySettings {
+
+
+    //Note: Ich hab mit dem Code von Ulla weitergemacht, der auf meinem Konzept aufbaute. 
 
     let allcards: string[] = ["A", "A", "B", "B", "C", "C", "D", "D", "E", "E",
         "F", "F", "G", "G", "H", "H", "I", "I", "J", "J",
