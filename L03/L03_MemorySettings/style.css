@@ -1,0 +1,61 @@
+p{
+  
+    margin-left: 3%;
+}
+h1 {
+    padding-left: 2.5%;
+    padding-top: 1%;
+}
+
+#container {
+    position: absolute;
+    margin-left: 2%;
+    padding: 10px 20px 0px 20px;
+    width: 88%;
+    height: 80%;
+    border: 3px solid khaki;
+    background-color: lightgoldenrodyellow;
+}
+
+#startbtn {
+  
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: -25%;
+   
+
+}
+
+#startbtn:hover {
+    background-color: lightblue;
+}
+
+span {
+    font-size: 90px;
+    user-select: none;
+}
+
+.cardContainer {
+    margin: 6px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.hidden {
+    color: #46469b;
+}
+
+.unhidden {
+    color: #ffffff;
+}
+
+form{
+    position: relative;
+    width: 60%;
+}

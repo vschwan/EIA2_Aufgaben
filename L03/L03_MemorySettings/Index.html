@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./L03_MemorySettings.js"></script>
+    <title>Memory-Game</title>
+</head>
+
+<body>
+    <h1>Memory-Game</h1>
+    <p> This is a simple memory game. Choose two cards to check if they are the same! You get 2sec! <br>
+        First, fill out the form as you wish. <br>
+        When you're ready, press the start-button.
+    </p>
+    </br>
+
+    <div id="container">
+
+        <form>
+            <h2>Choose here</h2>
+            <fieldset>
+                <legend>Cardnumber/Pairs</legend>
+                <label for="quantity">Choose the number of pairs you want to play with:</label>
+                <input type="number" id="quantity" name="Quantity" min="2" max="26" value="10">
+            </fieldset>
+
+            <fieldset>
+                <legend>size of cards</legend>
+                <input type="range" name="Range" id="range" min="0.1" max="1.0" step="0.1" value="0.5">
+            </fieldset>
+
+            <fieldset>
+                <legend>Colour</legend>
+                <label for="backgroundColor">Choose a backgroundcolor:</label>
+                <input type="color" id="backgroundColor" name="Backgroundcolor" value="#6ec8a3">
+                <br>
+                <label for="backsideCard">Choose the color for the backside of the cards</label>
+                <input type="color" id="backsideCard" name="BacksideCard" value="#b33ab6">
+                <br>
+                <label for="fontColor">Choose the color of the font</label>
+                <input type="color" name="Fontcolor" id="fontcolor" value="ffffff">
+            </fieldset>
+
+            <fieldset>
+                <legend>Fonts</legend>
+                <input type="radio" name="Fonts" id="font1" checked>
+                <label for="font1">Font 1</label>
+
+                <input type="radio" name="Fonts" id="font2">
+                <label for="font2">Font 2</label>
+
+                <input type="radio" name="Fonts" id="font3">
+                <label for="font3">Font 3</label>
+            </fieldset>
+
+
+        </form>
+        <button id="startbtn">START</button>
+
+    </div>
+</body>
+
+</html>

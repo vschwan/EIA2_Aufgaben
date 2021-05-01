@@ -20,35 +20,30 @@ var L03_CocktailBar;
         let formData = new FormData(document.forms[0]);
         for (let entry of formData) {
             //console.log(entry);
+            let amount = Number(formData.get("Amount"));
+            console.log(amount);
             let item = document.querySelector("[value='" + entry[1] + "']");
             let price = Number(item.getAttribute("price"));
-            order.innerHTML += item.name + "  € " + price;
+            console.log(price);
+            let total = 0;
+            let totalSum = 0;
+            if (item.classList.contains("drinks")) {
+                total = price * amount;
+                //  console.log(total = price, amount);
+                order.innerHTML += entry[1] + ": " + amount + " L" + " = " + total + " Euro" + "<br>";
+                totalSum += total;
+            }
+            else {
+                console.log("test");
+                order.innerHTML += entry[1] + " " + price + " Euro" + "<br>";
+                totalSum += price;
+            }
         }
-        displayOrder;
     }
     function displayAmount(_event) {
         let progress = document.querySelector("progress");
         let amount = _event.target.value;
         progress.value = parseFloat(amount);
-    }
-    function displayOrder() {
-        // //delete previous Order
-        // let order: HTMLDivElement = <HTMLDivElement>document.querySelector("#order");
-        // order.innerHTML = "";
-        // //get values of form
-        // let formData: FormData = new FormData(document.forms[0]);
-        // let total: number = 0;
-        // for (let entry of formData) {
-        //     console.log(entry);
-        //     console.log("name: " + entry[0]); //item
-        //     console.log("value: " + entry[1]); //price - Typ: FormDataEntryValue --> muss ggf. in string konvertiert werden 
-        //     //item = getNextItemData
-        //     //price = getItemPrice
-        //     //printRow (item, price)
-        //     //wenn item ==drink --> get value(amount) of slider und dann mit mit value of drink multiplizieren --> total += amount*price
-        //     //total += amount*price
-        //     //printsum
-        // }
     }
 })(L03_CocktailBar || (L03_CocktailBar = {}));
 //# sourceMappingURL=CocktailBar.js.map
