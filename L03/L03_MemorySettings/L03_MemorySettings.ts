@@ -11,7 +11,7 @@ namespace L03_MemorySettings {
 
     let playcards: string[] = [];
     let chosenCards: string[] = [];
-    let matches: string[] = [];
+    let matches: string[] = []; 
 
     let card1: HTMLElement;
     let card2: HTMLElement;
@@ -31,10 +31,14 @@ namespace L03_MemorySettings {
 
     let container: HTMLDivElement;
     let startButton: HTMLButtonElement;
+
     let form: HTMLFormElement;
     let info: HTMLParagraphElement;
 
     window.addEventListener("load", handleLoad);
+
+
+
 
     function handleLoad(): void {
 
@@ -45,18 +49,10 @@ namespace L03_MemorySettings {
 
         //startButton.addEventListener("click", handleForm);
         startButton.addEventListener("click", generateContent);
-
-
     }
 
 
-
-
-
     function generateContent(): void {
-
-
-
 
         let formData: FormData = new FormData(document.forms[0]);
         for (let entry of formData) {
@@ -104,9 +100,9 @@ namespace L03_MemorySettings {
 
             }
         }
-
+ 
         let amountCards: number = nPairs * 2;
-
+ 
         for (let i: number = 0; i < amountCards; i++) {
             let oneLetterArray: string[] = allcards.slice(i, i + 1);
             let oneLetter: string = oneLetterArray.toString();
@@ -133,10 +129,7 @@ namespace L03_MemorySettings {
             div.style.width = cardsize + "px";
             div.style.height = cardsize + "px";
 
-
             container.style.backgroundColor = cBackgroundColor;
-
-
 
             let span: HTMLSpanElement = document.createElement("span");
             span.innerHTML = playcards[k];
@@ -168,7 +161,6 @@ namespace L03_MemorySettings {
     function hideAllLetters(): void {
 
         let allSpan: NodeListOf<HTMLSpanElement> = document.querySelectorAll("span");
-
         for (let i: number = 0; i < allSpan.length; i++) {
 
             if (allSpan[i].classList.contains("unhidden")) {
@@ -214,7 +206,6 @@ namespace L03_MemorySettings {
 
             card1.style.background = "slategrey";
             card2.style.background = "slategrey";
-
             let cardOneArray: string[] = chosenCards.splice(0, 1);
             let cardOne: string = cardOneArray.toString();
             matches.push(cardOne);
