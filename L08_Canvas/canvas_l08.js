@@ -5,6 +5,9 @@ var L08_Canvas;
     function handleLoad() {
         let canvas = document.querySelector("canvas");
         //getRenderingContext
+        //CanvasRenderingContext arbeitet im Immediate Mode != retained Mode
+        //nachfolgende Zeichenkommandos können die Wirkung vorangegangener überschreiben: Das Bild muss von hinten aufgebaut werden
+        //--> Maleralgorithmus
         let crc2 = canvas.getContext("2d");
         canvas.height = 400;
         canvas.width = 600;
@@ -12,6 +15,9 @@ var L08_Canvas;
         //fillRect --> Methode
         //fillRect, clearRect, strokeRect geben sofrt sichtbares Ergebnis, andere Formen werden mit Pfad-Objekt definiert
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        //Bei Verwendung der Pfad-Methoden direkt auf dem RenderingContext, 
+        //wird ein globales Pfadobjekt manipuliert. Mit beginPath() wird der darin enthaltene alte Pfad gelöscht 
+        //und ein neuer angelegt. --> später nciht mehr wiederverwendbar --> new Path2D(): erzeugt individuelle Pfadobjekte
         //kreiiis 
         crc2.beginPath();
         crc2.fillStyle = "#c383ac";
@@ -45,13 +51,15 @@ var L08_Canvas;
         crc2.fillStyle = gradient;
         crc2.fillText("Ich bin eine Biene lol", 300, 100);
         crc2.strokeText("hallo", 100, 300);
-        // // Create gradient
-        // let grd = crc2.createLinearGradient(0, 80, 100, 0);
-        // grd.addColorStop(0, "red");
-        // grd.addColorStop(1, "white");
-        // // Fill with gradient
-        // crc2.fillStyle = grd;
-        // crc2.fillRect(10, 10, 150, 80);
+        let path = new Path2D();
+        path.arc(500, 300, 50, 0, 2 * Math.PI);
+        crc2.stroke(path);
+        // (0.5,0.5) = ersten sichtbaren Pixel; (canvas.width-0.5, canvas.height -0.5)
+        // Treppen-Efekt: Aliasing --> Farbverteilung: Anti-Aliasing
+        //zu transform
+        //es exisitiert nur EINE Transformationsmatrix
+        //die wird jedes mal verändert wenn translate, rotate, scale usw aufgerufen werden
+        //immer wiederkehrende Trransformationsaufrufe kumulieren in der Matrix
     }
 })(L08_Canvas || (L08_Canvas = {}));
 //# sourceMappingURL=canvas_l08.js.map

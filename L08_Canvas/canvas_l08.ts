@@ -6,6 +6,9 @@ namespace L08_Canvas {
 
         let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
         //getRenderingContext
+        //CanvasRenderingContext arbeitet im Immediate Mode != retained Mode
+        //nachfolgende Zeichenkommandos können die Wirkung vorangegangener überschreiben: Das Bild muss von hinten aufgebaut werden
+        //--> Maleralgorithmus
         let crc2: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         canvas.height = 400;
@@ -14,6 +17,10 @@ namespace L08_Canvas {
         //fillRect --> Methode
         //fillRect, clearRect, strokeRect geben sofrt sichtbares Ergebnis, andere Formen werden mit Pfad-Objekt definiert
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+
+        //Bei Verwendung der Pfad-Methoden direkt auf dem RenderingContext, 
+        //wird ein globales Pfadobjekt manipuliert. Mit beginPath() wird der darin enthaltene alte Pfad gelöscht 
+        //und ein neuer angelegt. --> später nciht mehr wiederverwendbar --> new Path2D(): erzeugt individuelle Pfadobjekte
 
         //kreiiis 
         crc2.beginPath();
@@ -56,18 +63,23 @@ namespace L08_Canvas {
         crc2.fillText("Ich bin eine Biene lol", 300, 100);
         crc2.strokeText("hallo", 100, 300);
 
+        let path: Path2D = new Path2D();
+        path.arc(500, 300, 50, 0, 2 * Math.PI);
+        crc2.stroke(path);
+
+
+        // (0.5,0.5) = ersten sichtbaren Pixel; (canvas.width-0.5, canvas.height -0.5)
+        // Treppen-Efekt: Aliasing --> Farbverteilung: Anti-Aliasing
+
+
+//zu transform
+//es exisitiert nur EINE Transformationsmatrix
+//die wird jedes mal verändert wenn translate, rotate, scale usw aufgerufen werden
+//immer wiederkehrende Trransformationsaufrufe kumulieren in der Matrix
 
 
 
 
-        // // Create gradient
-        // let grd = crc2.createLinearGradient(0, 80, 100, 0);
-        // grd.addColorStop(0, "red");
-        // grd.addColorStop(1, "white");
-
-        // // Fill with gradient
-        // crc2.fillStyle = grd;
-        // crc2.fillRect(10, 10, 150, 80);
 
 
 
