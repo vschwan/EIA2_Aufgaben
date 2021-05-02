@@ -54,12 +54,38 @@ var L08_Canvas;
         let path = new Path2D();
         path.arc(500, 300, 50, 0, 2 * Math.PI);
         crc2.stroke(path);
+        /*
+                let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
+                pattern.canvas.width = 40;
+                pattern.canvas.height = 20;
+        
+                pattern.fillStyle = "#fec";
+                pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
+                pattern.moveTo(0, 10);
+                pattern.lineTo(10, 10);
+                pattern.lineTo(20, 0);
+                pattern.lineTo(30, 0);
+                pattern.lineTo(40, 10);
+                pattern.lineTo(30, 20);
+                pattern.lineTo(20, 20);
+                pattern.lineTo(10, 10);
+                pattern.stroke();
+        
+                crc2.fillStyle = crc2.createPattern(pattern.canvas, "repeat");
+                crc2.fillRect(0, 0, canvas.width, canvas.height); */
         // (0.5,0.5) = ersten sichtbaren Pixel; (canvas.width-0.5, canvas.height -0.5)
         // Treppen-Efekt: Aliasing --> Farbverteilung: Anti-Aliasing
         //zu transform
         //es exisitiert nur EINE Transformationsmatrix
         //die wird jedes mal verändert wenn translate, rotate, scale usw aufgerufen werden
-        //immer wiederkehrende Trransformationsaufrufe kumulieren in der Matrix
+        //immer wiederkehrende Trransformationsaufrufe kumulieren(häufen sich an) in der Matrix
+        //Lösung:
+        //resetTransform(); bringt Gesamtmatrix auf Ursprung
+        //save(); aktuellen Zustand der MAtrix speichern (auch syles usw) und später mit 
+        //restore() herstellen (fall mehrmals gesaved wurde, 
+        //werden bei restore die Zustände (state) in umgekehrter Reihenfolge hergestellt) (wie bei einem Ablagestapel)
+        //get Transform() ; den aktuellen Zusatnd der Matrix speichern und einer Variable vom Typ DOMMatrix zuweisen
+        //mit setTransform(...) und der Variable als Paramater wird der Zustand wiederhergestellt
     }
 })(L08_Canvas || (L08_Canvas = {}));
 //# sourceMappingURL=canvas_l08.js.map
