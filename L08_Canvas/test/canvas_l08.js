@@ -41,7 +41,7 @@ var L08_Canvas;
         crc2.lineTo(20, 300);
         crc2.lineTo(200, 190);
         crc2.fill();
-        crc2.closePath();
+        crc2.closePath(); //schließt automatisch
         crc2.stroke();
         let gradient = crc2.createLinearGradient(350, 100, 400, 100);
         crc2.font = "20px Impact";
@@ -54,25 +54,22 @@ var L08_Canvas;
         let path = new Path2D();
         path.arc(500, 300, 50, 0, 2 * Math.PI);
         crc2.stroke(path);
-        /*
-                let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
-                pattern.canvas.width = 40;
-                pattern.canvas.height = 20;
-        
-                pattern.fillStyle = "#fec";
-                pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
-                pattern.moveTo(0, 10);
-                pattern.lineTo(10, 10);
-                pattern.lineTo(20, 0);
-                pattern.lineTo(30, 0);
-                pattern.lineTo(40, 10);
-                pattern.lineTo(30, 20);
-                pattern.lineTo(20, 20);
-                pattern.lineTo(10, 10);
-                pattern.stroke();
-        
-                crc2.fillStyle = crc2.createPattern(pattern.canvas, "repeat");
-                crc2.fillRect(0, 0, canvas.width, canvas.height); */
+        let pattern = document.createElement("canvas").getContext("2d");
+        pattern.canvas.width = 40;
+        pattern.canvas.height = 20;
+        pattern.fillStyle = "#fec";
+        pattern.fillRect(0, 0, pattern.canvas.width, pattern.canvas.height);
+        pattern.moveTo(0, 10);
+        pattern.lineTo(10, 10);
+        pattern.lineTo(20, 0);
+        pattern.lineTo(30, 0);
+        pattern.lineTo(40, 10);
+        pattern.lineTo(30, 20);
+        pattern.lineTo(20, 20);
+        pattern.lineTo(10, 10);
+        pattern.stroke();
+        crc2.fillStyle = crc2.createPattern(pattern.canvas, "repeat");
+        crc2.fillRect(0, 0, canvas.width, canvas.height);
         // (0.5,0.5) = ersten sichtbaren Pixel; (canvas.width-0.5, canvas.height -0.5)
         // Treppen-Efekt: Aliasing --> Farbverteilung: Anti-Aliasing
         //zu transform

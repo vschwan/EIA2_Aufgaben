@@ -4,7 +4,7 @@ namespace L08_Canvas {
 
     function handleLoad(): void {
 
-        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
+        let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas")!;
         //getRenderingContext
         //CanvasRenderingContext arbeitet im Immediate Mode != retained Mode
         //nachfolgende Zeichenkommandos können die Wirkung vorangegangener überschreiben: Das Bild muss von hinten aufgebaut werden
@@ -50,7 +50,7 @@ namespace L08_Canvas {
         crc2.lineTo(200, 190);
         crc2.fill();
 
-        crc2.closePath();
+        crc2.closePath(); //schließt automatisch
         crc2.stroke();
 
 
@@ -69,7 +69,7 @@ namespace L08_Canvas {
 
 
 
-/*
+
         let pattern: CanvasRenderingContext2D = <CanvasRenderingContext2D>document.createElement("canvas").getContext("2d");
         pattern.canvas.width = 40;
         pattern.canvas.height = 20;
@@ -86,8 +86,8 @@ namespace L08_Canvas {
         pattern.lineTo(10, 10);
         pattern.stroke();
 
-        crc2.fillStyle = crc2.createPattern(pattern.canvas, "repeat");
-        crc2.fillRect(0, 0, canvas.width, canvas.height); */
+        crc2.fillStyle = <CanvasPattern>crc2.createPattern(pattern.canvas, "repeat");
+        crc2.fillRect(0, 0, canvas.width, canvas.height); 
 
 
 
@@ -107,9 +107,6 @@ namespace L08_Canvas {
         //werden bei restore die Zustände (state) in umgekehrter Reihenfolge hergestellt) (wie bei einem Ablagestapel)
         //get Transform() ; den aktuellen Zusatnd der Matrix speichern und einer Variable vom Typ DOMMatrix zuweisen
         //mit setTransform(...) und der Variable als Paramater wird der Zustand wiederhergestellt
-
-
-
 
 
 
