@@ -8,6 +8,7 @@ namespace L08_1_GenerativeArt {
     let y: number;
     let nRectangles: number = 10;
     let nParticles: number = 100;
+    let nTriangles: number = 10;
 
 
     function handleLoad(): void {
@@ -76,6 +77,14 @@ namespace L08_1_GenerativeArt {
 
     function createElements(): void {
 
+        for (let i: number = 0; i < nTriangles; i++) {
+            x = (Math.random() * canvas.width);
+            y = (Math.random() * canvas.height);
+
+            drawTriangles(x, y);
+
+
+        }
 
         for (let i: number = 0; i < nRectangles; i++) {
             x = (Math.random() * canvas.width);
@@ -93,9 +102,28 @@ namespace L08_1_GenerativeArt {
 
 
         }
-
     }
 
+
+    function drawTriangles(_x: number, _y: number): void {
+        crc2.save();
+        crc2.beginPath();
+        crc2.fillStyle = "hsla(0, 80%, 52%, 0.2)";
+        crc2.strokeStyle = "hsla(0, 80%, 52%, 0.2)";
+        crc2.rotate((Math.random() * 360) * (Math.PI / 180));
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 400, _y + 900);
+        crc2.lineTo(_x + 440, _y + 300);
+       
+        crc2.fill();
+        crc2.closePath(); 
+        crc2.stroke();
+
+        crc2.save();
+        crc2.restore();
+        crc2.restore();
+
+    }
 
 
     function drawRectangles(_x: number, _y: number): void {
@@ -108,9 +136,8 @@ namespace L08_1_GenerativeArt {
 
                 crc2.fillStyle = "rgb(" + 255 + ", " +
                     Math.floor(255 - 42.5 * j) + "," + Math.floor(255 - 42.5 * i) + ")";
+
                 crc2.fillRect(j * _x, i * _y, 40, 40);
-
-
 
             }
 
@@ -121,11 +148,12 @@ namespace L08_1_GenerativeArt {
 
         crc2.fillStyle = "rgb(" + 255 + ", " +
             Math.floor(255 - Math.random() * 255) + "," + Math.floor(255 - Math.random() * 255) + ")";
+
         crc2.shadowBlur = 5;
         crc2.shadowOffsetX = 0;
         crc2.shadowOffsetY = 5;
-        crc2.shadowColor = "#40191f";
-
+        crc2.shadowColor = "#6f3b42";
+        crc2.rotate(Math.random() * (Math.PI / 180));
         crc2.fillRect(_x, _y, 120, 120);
 
         crc2.save();

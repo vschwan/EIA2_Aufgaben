@@ -8,6 +8,7 @@ var L08_1_GenerativeArt;
     let y;
     let nRectangles = 10;
     let nParticles = 100;
+    let nTriangles = 10;
     function handleLoad() {
         canvas = document.querySelector("canvas");
         crc2 = canvas.getContext("2d");
@@ -55,6 +56,11 @@ var L08_1_GenerativeArt;
         crc2.stroke();
     }
     function createElements() {
+        for (let i = 0; i < nTriangles; i++) {
+            x = (Math.random() * canvas.width);
+            y = (Math.random() * canvas.height);
+            drawTriangles(x, y);
+        }
         for (let i = 0; i < nRectangles; i++) {
             x = (Math.random() * canvas.width);
             y = (Math.random() * canvas.height);
@@ -65,6 +71,22 @@ var L08_1_GenerativeArt;
             y = (Math.random() * canvas.height);
             drawParticles(x, y);
         }
+    }
+    function drawTriangles(_x, _y) {
+        crc2.save();
+        crc2.beginPath();
+        crc2.fillStyle = "hsla(0, 80%, 52%, 0.2)";
+        crc2.strokeStyle = "hsla(0, 80%, 52%, 0.2)";
+        crc2.rotate((Math.random() * 360) * (Math.PI / 180));
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 400, _y + 900);
+        crc2.lineTo(_x + 440, _y + 300);
+        crc2.fill();
+        crc2.closePath();
+        crc2.stroke();
+        crc2.save();
+        crc2.restore();
+        crc2.restore();
     }
     function drawRectangles(_x, _y) {
         crc2.save();
@@ -81,7 +103,8 @@ var L08_1_GenerativeArt;
         crc2.shadowBlur = 5;
         crc2.shadowOffsetX = 0;
         crc2.shadowOffsetY = 5;
-        crc2.shadowColor = "#40191f";
+        crc2.shadowColor = "#6f3b42";
+        crc2.rotate(Math.random() * (Math.PI / 180));
         crc2.fillRect(_x, _y, 120, 120);
         crc2.save();
         crc2.restore();
