@@ -17,8 +17,6 @@ namespace L08_1_GenerativeArt {
         resizeCanvas();
         drawBackground();
         createElements();
-        animate();
-
 
     }
 
@@ -45,7 +43,7 @@ namespace L08_1_GenerativeArt {
 
     function drawBackground(): void {
 
-       
+
         //create curves with beziercurves
         crc2.beginPath();
         crc2.moveTo(0, 400);
@@ -72,7 +70,7 @@ namespace L08_1_GenerativeArt {
         crc2.fill();
         crc2.closePath();
         crc2.stroke();
-    
+
 
     }
 
@@ -102,15 +100,17 @@ namespace L08_1_GenerativeArt {
 
     function drawRectangles(_x: number, _y: number): void {
 
-
+        crc2.save();
         // let randomcolor: string;
 
         for (let i: number = 0; i < 6; i++) {
             for (let j: number = 0; j < 6; j++) {
 
-                crc2.fillStyle = 'rgb(' + 255 + ', ' +
+                crc2.fillStyle = "rgb(" + 255 + ", " +
                     Math.floor(255 - 42.5 * j) + "," + Math.floor(255 - 42.5 * i) + ")";
                 crc2.fillRect(j * _x, i * _y, 40, 40);
+
+
 
             }
 
@@ -118,9 +118,20 @@ namespace L08_1_GenerativeArt {
 
 
 
-        crc2.fillStyle = 'rgb(' + 255 + ', ' +
+
+        crc2.fillStyle = "rgb(" + 255 + ", " +
             Math.floor(255 - Math.random() * 255) + "," + Math.floor(255 - Math.random() * 255) + ")";
-        crc2.fillRect(_x, _y, 80, 80);
+        crc2.shadowBlur = 5;
+        crc2.shadowOffsetX = 0;
+        crc2.shadowOffsetY = 5;
+        crc2.shadowColor = "#40191f";
+
+        crc2.fillRect(_x, _y, 120, 120);
+
+        crc2.save();
+        crc2.restore();
+        crc2.restore();
+
 
 
         // let hexCode = "0123456789ABCDEF";
@@ -166,6 +177,7 @@ namespace L08_1_GenerativeArt {
         gradient.addColorStop(0, "HSLA(290, 90%,90%, 0.6)");
         gradient.addColorStop(0.8, "HSLA(300, 100%,100%, 0.05)");
 
+
         crc2.fillStyle = gradient;
         crc2.save();
 
@@ -177,14 +189,4 @@ namespace L08_1_GenerativeArt {
 
 
 
-    function animate(): void {
-
-
-    }
-
 }
-
-
-
-
-

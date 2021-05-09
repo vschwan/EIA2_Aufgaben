@@ -14,7 +14,6 @@ var L08_1_GenerativeArt;
         resizeCanvas();
         drawBackground();
         createElements();
-        animate();
     }
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -68,17 +67,25 @@ var L08_1_GenerativeArt;
         }
     }
     function drawRectangles(_x, _y) {
+        crc2.save();
         // let randomcolor: string;
         for (let i = 0; i < 6; i++) {
             for (let j = 0; j < 6; j++) {
-                crc2.fillStyle = 'rgb(' + 255 + ', ' +
+                crc2.fillStyle = "rgb(" + 255 + ", " +
                     Math.floor(255 - 42.5 * j) + "," + Math.floor(255 - 42.5 * i) + ")";
                 crc2.fillRect(j * _x, i * _y, 40, 40);
             }
         }
-        crc2.fillStyle = 'rgb(' + 255 + ', ' +
+        crc2.fillStyle = "rgb(" + 255 + ", " +
             Math.floor(255 - Math.random() * 255) + "," + Math.floor(255 - Math.random() * 255) + ")";
-        crc2.fillRect(_x, _y, 80, 80);
+        crc2.shadowBlur = 5;
+        crc2.shadowOffsetX = 0;
+        crc2.shadowOffsetY = 5;
+        crc2.shadowColor = "#40191f";
+        crc2.fillRect(_x, _y, 120, 120);
+        crc2.save();
+        crc2.restore();
+        crc2.restore();
         // let hexCode = "0123456789ABCDEF";
         // let Color = "#";
         // for (let i = 0; i < 6; i++)
@@ -118,8 +125,6 @@ var L08_1_GenerativeArt;
         crc2.fill();
         crc2.restore();
         crc2.restore();
-    }
-    function animate() {
     }
 })(L08_1_GenerativeArt || (L08_1_GenerativeArt = {}));
 //# sourceMappingURL=L08_1_GenerativeArt.js.map
