@@ -17,7 +17,6 @@ var L08_FlowerMeadow;
         drawMountains({ x: 0, y: horizon }, 50, 150, "HSL(216, 15%, 17%)", "HSL(216, 22%, 58%)");
         drawCloud({ x: 300, y: 120 }, { x: 180, y: 30 });
         drawHills({ x: 0, y: horizon });
-        // drawTrees();
         drawTree();
         for (let i = 0; i < nFlowers; i++) {
             let x = (Math.random() * canvas.width / 2);
@@ -29,6 +28,8 @@ var L08_FlowerMeadow;
             let y = (150 + Math.random() * canvas.height / 2);
             drawCupFlower(x, y);
         }
+        // drawBeeHive();
+        // drawBees();
         // drawBees();
     }
     function drawBackground() {
@@ -142,7 +143,7 @@ var L08_FlowerMeadow;
     function drawRoundFlower(_x, _y) {
         //drawStem
         crc2.save();
-        crc2.translate(100, 100);
+        crc2.translate(100, 100); //ey, keine ahnung
         let stem = new Path2D();
         stem.rect(0, 0, 5, 30);
         crc2.save();
