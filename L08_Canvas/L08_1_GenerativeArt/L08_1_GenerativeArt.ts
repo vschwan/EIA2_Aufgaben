@@ -41,7 +41,7 @@ namespace L08_1_GenerativeArt {
 
     }
 
-
+ 
     function drawBackground(): void {
 
 
