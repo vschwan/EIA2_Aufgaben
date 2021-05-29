@@ -47,13 +47,13 @@ namespace L08_FlowerMeadow {
             drawRoundFlower(x, y);
         }
 
-        for (let i: number = 0; i < nFlowers; i++) {
+       /* for (let i: number = 0; i < nFlowers; i++) {
 
             let x: number = (Math.random() * canvas.width / 2);
             let y: number = (150 + Math.random() * canvas.height / 2);
 
             drawCupFlower(x, y);
-        }
+        }*/
 
         // drawBeeHive();
         // drawBees();
@@ -244,8 +244,9 @@ namespace L08_FlowerMeadow {
 
     function drawRoundFlower(_x: number, _y: number): void {
         //drawStem
+        crc2.restore();
         crc2.save();
-        crc2.translate(100, 100); //ey, keine ahnung
+        crc2.translate(_x, _y); //ey, keine ahnung
         let stem: Path2D = new Path2D();
         stem.rect(0, 0, 5, 30);
 
@@ -277,7 +278,7 @@ namespace L08_FlowerMeadow {
     }
 
 
-    function drawCupFlower(_x: number, _y: number): void {
+ /*   function drawCupFlower(_x: number, _y: number): void {
         //drawStem
         crc2.save();
         crc2.translate(100, 100);
@@ -314,7 +315,7 @@ namespace L08_FlowerMeadow {
         crc2.fill(cupFlower);
         crc2.restore();
 
-    }
+    }*/
 
 
 

@@ -23,11 +23,13 @@ var L08_FlowerMeadow;
             let y = (150 + Math.random() * canvas.height / 2);
             drawRoundFlower(x, y);
         }
-        for (let i = 0; i < nFlowers; i++) {
-            let x = (Math.random() * canvas.width / 2);
-            let y = (150 + Math.random() * canvas.height / 2);
-            drawCupFlower(x, y);
-        }
+        /* for (let i: number = 0; i < nFlowers; i++) {
+ 
+             let x: number = (Math.random() * canvas.width / 2);
+             let y: number = (150 + Math.random() * canvas.height / 2);
+ 
+             drawCupFlower(x, y);
+         }*/
         // drawBeeHive();
         // drawBees();
         // drawBees();
@@ -142,8 +144,9 @@ var L08_FlowerMeadow;
     }
     function drawRoundFlower(_x, _y) {
         //drawStem
+        crc2.restore();
         crc2.save();
-        crc2.translate(100, 100); //ey, keine ahnung
+        crc2.translate(_x, _y); //ey, keine ahnung
         let stem = new Path2D();
         stem.rect(0, 0, 5, 30);
         crc2.save();
@@ -164,32 +167,43 @@ var L08_FlowerMeadow;
         crc2.fill(roundFlower);
         crc2.restore();
     }
-    function drawCupFlower(_x, _y) {
-        //drawStem
-        crc2.save();
-        crc2.translate(100, 100);
-        let stem = new Path2D();
-        stem.rect(0, 0, 3, 30);
-        crc2.save();
-        crc2.translate(_x, _y);
-        crc2.fillStyle = "HSL(89, 59%, 66%)";
-        crc2.fill(stem);
-        crc2.restore();
-        //drawPetal
-        let cupFlower = new Path2D();
-        // let gradientfl: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusFlower);
-        crc2.beginPath();
-        cupFlower.moveTo(100, 100);
-        cupFlower.quadraticCurveTo(20, 100, 200, 20);
-        cupFlower.closePath();
-        crc2.stroke();
-        // gradientfl.addColorStop(0.5, "HSL(69,100%,50%)");
-        // gradientfl.addColorStop(1, "HSL(318,59%,57%)");
-        crc2.save();
-        crc2.translate(_x, _y);
-        crc2.fillStyle = "HSL(89, 59%, 66%)";
-        crc2.fill(cupFlower);
-        crc2.restore();
-    }
+    /*   function drawCupFlower(_x: number, _y: number): void {
+           //drawStem
+           crc2.save();
+           crc2.translate(100, 100);
+           let stem: Path2D = new Path2D();
+           stem.rect(0, 0, 3, 30);
+   
+   
+           crc2.save();
+           crc2.translate(_x, _y);
+           crc2.fillStyle = "HSL(89, 59%, 66%)";
+   
+           crc2.fill(stem);
+           crc2.restore();
+   
+   
+           //drawPetal
+           let cupFlower: Path2D = new Path2D();
+   
+   
+           // let gradientfl: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusFlower);
+   
+           crc2.beginPath();
+           cupFlower.moveTo(100, 100);
+           cupFlower.quadraticCurveTo(20, 100, 200, 20);
+           cupFlower.closePath();
+           crc2.stroke();
+   
+           // gradientfl.addColorStop(0.5, "HSL(69,100%,50%)");
+           // gradientfl.addColorStop(1, "HSL(318,59%,57%)");
+   
+           crc2.save();
+           crc2.translate(_x, _y);
+           crc2.fillStyle = "HSL(89, 59%, 66%)";
+           crc2.fill(cupFlower);
+           crc2.restore();
+   
+       }*/
 })(L08_FlowerMeadow || (L08_FlowerMeadow = {}));
-//# sourceMappingURL=L08_FlowerMeadow.js.map
+//# sourceMappingURL=Canvas_08.js.map
