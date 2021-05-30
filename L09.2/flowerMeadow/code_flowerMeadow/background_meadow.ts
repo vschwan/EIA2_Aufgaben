@@ -40,7 +40,7 @@ namespace L09_2_FlowerMeadow {
 
 
         drawMountain(_min: number, _max: number, _colorLow: string, _colorHigh: string): void {
-          crc2.restore();
+            crc2.restore();
             console.log("drawMountains");
             let stepMin: number = 90;
             let stepMax: number = 100;
@@ -165,11 +165,11 @@ namespace L09_2_FlowerMeadow {
             crc2.closePath();
 
             crc2.restore();
-            
+
         }
 
 
-       
+
 
 
 
