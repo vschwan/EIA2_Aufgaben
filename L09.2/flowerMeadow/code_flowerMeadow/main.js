@@ -37,6 +37,7 @@ var L09_2_FlowerMeadow;
         let sizeCloud1 = new L09_2_FlowerMeadow.Vector(200, 30);
         let cloud1 = new L09_2_FlowerMeadow.Cloud(posCloud1, sizeCloud1);
         cloud1.draw();
+        moveables.push(cloud1);
         let posMountain1 = new L09_2_FlowerMeadow.Vector(0, horizon);
         let mountain1 = new L09_2_FlowerMeadow.Background(posMountain1);
         mountain1.drawMountain(70, 200, "HSL(216, 50%, 17%)", "HSL(216, 90%, 90%)");

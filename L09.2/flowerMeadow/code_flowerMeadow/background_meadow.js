@@ -28,6 +28,7 @@ var L09_2_FlowerMeadow;
             L09_2_FlowerMeadow.crc2.restore();
         }
         drawMountain(_min, _max, _colorLow, _colorHigh) {
+            L09_2_FlowerMeadow.crc2.restore();
             console.log("drawMountains");
             let stepMin = 90;
             let stepMax = 100;

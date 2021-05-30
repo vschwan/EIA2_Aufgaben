@@ -24,7 +24,9 @@ namespace L09_2_FlowerMeadow {
 
 
         draw(): void {
-
+            crc2.restore();
+            crc2.save();
+            crc2.translate(this.position.x, this.position.y);
             console.log("drawCloud", this.position.x);
 
             let nPArticles: number = 40;
@@ -38,7 +40,7 @@ namespace L09_2_FlowerMeadow {
             gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0.1)");
 
             crc2.save();
-            crc2.translate(this.position.x, this.position.y);
+          
 
             crc2.fillStyle = gradient;
 
@@ -52,8 +54,9 @@ namespace L09_2_FlowerMeadow {
                 crc2.translate(x, y);
                 crc2.fill(particle);
                 crc2.restore();
-                crc2.restore();
+            
             }
+            crc2.restore();
 
         }
 
@@ -64,7 +67,7 @@ namespace L09_2_FlowerMeadow {
 
 
             let offset: Vector = this.velocity.copy();
-            offset.x *= _timeslice * 3;
+            offset.x *= _timeslice * 1;
             offset.y *= _timeslice * 0.2;
             this.position.add(offset);
 

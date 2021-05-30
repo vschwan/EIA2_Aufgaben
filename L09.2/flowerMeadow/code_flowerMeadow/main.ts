@@ -19,8 +19,8 @@ namespace L09_2_FlowerMeadow {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         drawBackground();
-
         handleBees();
+
 
         window.setInterval(animate, 20);
 
@@ -57,6 +57,8 @@ namespace L09_2_FlowerMeadow {
         let sizeCloud1: Vector = new Vector(200, 30);
         let cloud1: Cloud = new Cloud(posCloud1, sizeCloud1);
         cloud1.draw();
+        moveables.push(cloud1);
+       
 
         let posMountain1: Vector = new Vector(0, horizon);
         let mountain1: Background = new Background(posMountain1);
@@ -66,7 +68,7 @@ namespace L09_2_FlowerMeadow {
         let sizeCloud2: Vector = new Vector(100, 20);
         let cloud2: Cloud = new Cloud(posCloud2, sizeCloud2);
         cloud2.draw();
-        
+      
 
         let mountain2: Background = new Background(posMountain1);
         mountain2.drawMountain(50, 150, "HSL(216, 15%, 17%)", "HSL(216, 22%, 58%)");
@@ -75,6 +77,7 @@ namespace L09_2_FlowerMeadow {
         let sizeCloud3: Vector = new Vector(180, 30);
         let cloud3: Cloud = new Cloud(posCloud3, sizeCloud3);
         cloud3.draw();
+        
 
 
         let posTrees: Vector = new Vector(canvas.width / 2 - 5, 255);

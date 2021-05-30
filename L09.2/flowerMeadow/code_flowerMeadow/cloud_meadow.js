@@ -15,6 +15,9 @@ var L09_2_FlowerMeadow;
                 this.size = new L09_2_FlowerMeadow.Vector(0, 0);
         }
         draw() {
+            L09_2_FlowerMeadow.crc2.restore();
+            L09_2_FlowerMeadow.crc2.save();
+            L09_2_FlowerMeadow.crc2.translate(this.position.x, this.position.y);
             console.log("drawCloud", this.position.x);
             let nPArticles = 40;
             let radiusParticle = 20;
@@ -24,7 +27,6 @@ var L09_2_FlowerMeadow;
             gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.8)");
             gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0.1)");
             L09_2_FlowerMeadow.crc2.save();
-            L09_2_FlowerMeadow.crc2.translate(this.position.x, this.position.y);
             L09_2_FlowerMeadow.crc2.fillStyle = gradient;
             for (let drawn = 0; drawn < nPArticles; drawn++) {
                 L09_2_FlowerMeadow.crc2.save();
@@ -34,13 +36,13 @@ var L09_2_FlowerMeadow;
                 L09_2_FlowerMeadow.crc2.translate(x, y);
                 L09_2_FlowerMeadow.crc2.fill(particle);
                 L09_2_FlowerMeadow.crc2.restore();
-                L09_2_FlowerMeadow.crc2.restore();
             }
+            L09_2_FlowerMeadow.crc2.restore();
         }
         move(_timeslice) {
             super.move(_timeslice);
             let offset = this.velocity.copy();
-            offset.x *= _timeslice * 3;
+            offset.x *= _timeslice * 1;
             offset.y *= _timeslice * 0.2;
             this.position.add(offset);
             if (this.position.x < 0)
