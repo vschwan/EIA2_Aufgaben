@@ -10,9 +10,6 @@ namespace L09_2_FlowerMeadow {
     let background: ImageData;
 
 
-
-
-
     function handleLoad(): void {
 
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
