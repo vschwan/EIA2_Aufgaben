@@ -16,8 +16,6 @@ namespace L09_2_FlowerMeadow {
                 this.size = _size.copy();
             else
                 this.size = new Vector(0, 0);
-
-
         }
 
 
