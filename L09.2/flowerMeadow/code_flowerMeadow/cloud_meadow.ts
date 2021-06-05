@@ -1,7 +1,6 @@
 namespace L09_2_FlowerMeadow {
 
     export class Cloud extends Moveable {
-        position: Vector;
         size: Vector;
 
         constructor(_position: Vector, _size?: Vector) {

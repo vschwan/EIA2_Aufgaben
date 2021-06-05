@@ -1,6 +1,7 @@
 namespace L09_2_FlowerMeadow {
 
     export class Bee extends Moveable {
+    
 
         constructor(_position: Vector) {
             super(_position);

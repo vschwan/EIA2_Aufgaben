@@ -76,20 +76,20 @@ namespace L09_2_FlowerMeadow {
 
         drawTrees(): void {
 
-            let ntreetops: number = 300;
+            let ntrees: number = 300;
             crc2.restore();
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
 
-            let treetop: Path2D = new Path2D();
-            treetop.moveTo(0, 0);
-            treetop.lineTo(10, -30);
-            treetop.lineTo(20, 0);
-            treetop.lineTo(12, 0);
-            treetop.lineTo(12, 20);
-            treetop.lineTo(8, 20);
-            treetop.lineTo(8, 0);
-            treetop.closePath();
+            let tree: Path2D = new Path2D();
+            tree.moveTo(0, 0);
+            tree.lineTo(10, -30);
+            tree.lineTo(20, 0);
+            tree.lineTo(12, 0);
+            tree.lineTo(12, 20);
+            tree.lineTo(8, 20);
+            tree.lineTo(8, 0);
+            tree.closePath();
 
 
             crc2.shadowBlur = 2;
@@ -98,7 +98,7 @@ namespace L09_2_FlowerMeadow {
             crc2.shadowColor = "rgb(45, 38, 54)";
 
 
-            for (let drawn: number = 0; drawn < ntreetops; drawn++) {
+            for (let drawn: number = 0; drawn < ntrees; drawn++) {
                 let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, -10);
 
 
@@ -115,7 +115,7 @@ namespace L09_2_FlowerMeadow {
                 crc2.translate(x, y);
 
 
-                crc2.fill(treetop);
+                crc2.fill(tree);
                 crc2.restore();
             }
             crc2.restore();

@@ -57,24 +57,24 @@ var L09_2_FlowerMeadow;
             L09_2_FlowerMeadow.crc2.restore();
         }
         drawTrees() {
-            let ntreetops = 300;
+            let ntrees = 300;
             L09_2_FlowerMeadow.crc2.restore();
             L09_2_FlowerMeadow.crc2.save();
             L09_2_FlowerMeadow.crc2.translate(this.position.x, this.position.y);
-            let treetop = new Path2D();
-            treetop.moveTo(0, 0);
-            treetop.lineTo(10, -30);
-            treetop.lineTo(20, 0);
-            treetop.lineTo(12, 0);
-            treetop.lineTo(12, 20);
-            treetop.lineTo(8, 20);
-            treetop.lineTo(8, 0);
-            treetop.closePath();
+            let tree = new Path2D();
+            tree.moveTo(0, 0);
+            tree.lineTo(10, -30);
+            tree.lineTo(20, 0);
+            tree.lineTo(12, 0);
+            tree.lineTo(12, 20);
+            tree.lineTo(8, 20);
+            tree.lineTo(8, 0);
+            tree.closePath();
             L09_2_FlowerMeadow.crc2.shadowBlur = 2;
             L09_2_FlowerMeadow.crc2.shadowOffsetX = 1;
             L09_2_FlowerMeadow.crc2.shadowOffsetY = 1;
             L09_2_FlowerMeadow.crc2.shadowColor = "rgb(45, 38, 54)";
-            for (let drawn = 0; drawn < ntreetops; drawn++) {
+            for (let drawn = 0; drawn < ntrees; drawn++) {
                 let gradient = L09_2_FlowerMeadow.crc2.createLinearGradient(0, 0, 0, -10);
                 L09_2_FlowerMeadow.crc2.save();
                 let x = (Math.random() - 0.5) * this.size.x;
@@ -85,7 +85,7 @@ var L09_2_FlowerMeadow;
                     "," + Math.floor(38 - Math.random() * 38) + ")");
                 L09_2_FlowerMeadow.crc2.fillStyle = gradient;
                 L09_2_FlowerMeadow.crc2.translate(x, y);
-                L09_2_FlowerMeadow.crc2.fill(treetop);
+                L09_2_FlowerMeadow.crc2.fill(tree);
                 L09_2_FlowerMeadow.crc2.restore();
             }
             L09_2_FlowerMeadow.crc2.restore();
