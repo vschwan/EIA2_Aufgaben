@@ -141,6 +141,17 @@ namespace L10_2_FlowerMeadow {
             let flower: Flower = new Flower(posFlower);
             flower.drawOvalFlower();
         }
+
+        
+        for (let i: number = 0; i < nFlowers; i++) {
+
+            let x: number = (Math.random() * canvas.width);
+            let y: number = (320 + Math.random() * canvas.height / 4);
+
+            let posFlower: Vector = new Vector(x, y);
+            let flower: Flower = new Flower(posFlower);
+            flower.drawDropFlower();
+        }
     }
 
 

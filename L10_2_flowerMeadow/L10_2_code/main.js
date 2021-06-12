@@ -94,6 +94,13 @@ var L10_2_FlowerMeadow;
             let flower = new L10_2_FlowerMeadow.Flower(posFlower);
             flower.drawOvalFlower();
         }
+        for (let i = 0; i < nFlowers; i++) {
+            let x = (Math.random() * L10_2_FlowerMeadow.canvas.width);
+            let y = (320 + Math.random() * L10_2_FlowerMeadow.canvas.height / 4);
+            let posFlower = new L10_2_FlowerMeadow.Vector(x, y);
+            let flower = new L10_2_FlowerMeadow.Flower(posFlower);
+            flower.drawDropFlower();
+        }
     }
     function handleBees() {
         let nBees = 10;
