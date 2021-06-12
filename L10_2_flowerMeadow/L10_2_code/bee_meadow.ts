@@ -5,7 +5,8 @@ namespace L10_2_FlowerMeadow {
 
         constructor(_position: Vector) {
             super(_position);
-            this.velocity.random(40, 70);
+            this.velocity.random(40, 100);
+
         }
 
         draw(): void {
@@ -47,7 +48,6 @@ namespace L10_2_FlowerMeadow {
 
             super.move(_timeslice);
 
-            
             let offset: Vector = this.velocity.copy();
             offset.x *= _timeslice * 3; 
             offset.y *= _timeslice * 0.2;

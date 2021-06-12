@@ -4,7 +4,9 @@ var L10_2_FlowerMeadow;
     class Cloud extends L10_2_FlowerMeadow.Moveable {
         constructor(_position, _size) {
             super(_position);
-            this.velocity.random(40, 70);
+            // this.velocity.x = this.velocity.x * 20;
+            // this.velocity.x = this.velocity.y;
+            this.velocity.add(new L10_2_FlowerMeadow.Vector(20, 0));
             if (_position)
                 this.position = _position.copy();
             else
@@ -18,8 +20,8 @@ var L10_2_FlowerMeadow;
             L10_2_FlowerMeadow.crc2.restore();
             L10_2_FlowerMeadow.crc2.save();
             L10_2_FlowerMeadow.crc2.translate(this.position.x, this.position.y);
-            console.log("drawCloud", this.position.x);
-            let nPArticles = 40;
+            // console.log("drawCloud", this.position.x);
+            let nPArticles = ((Math.random() * 80) + 40);
             let radiusParticle = 20;
             let particle = new Path2D();
             let gradient = L10_2_FlowerMeadow.crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
@@ -38,12 +40,13 @@ var L10_2_FlowerMeadow;
                 L10_2_FlowerMeadow.crc2.restore();
             }
             L10_2_FlowerMeadow.crc2.restore();
+            L10_2_FlowerMeadow.crc2.restore();
         }
         move(_timeslice) {
             super.move(_timeslice);
             let offset = this.velocity.copy();
             offset.x *= _timeslice * 1;
-            offset.y *= _timeslice * 0.2;
+            offset.y *= _timeslice * 0;
             this.position.add(offset);
             if (this.position.x < 0)
                 this.position.x += (L10_2_FlowerMeadow.crc2.canvas.width);

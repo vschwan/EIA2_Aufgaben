@@ -5,14 +5,15 @@ namespace L10_2_FlowerMeadow {
 
         constructor(_position: Vector, _size?: Vector) {
             super(_position);
-         
-            this.velocity.random(40, 70);
+            // this.velocity.x = this.velocity.x * 20;
+            // this.velocity.x = this.velocity.y;
+
+            this.velocity.add(new Vector(20, 0));
 
             if (_position)
                 this.position = _position.copy();
             else
                 this.position = new Vector(0, 0);
-
 
             if (_size)
                 this.size = _size.copy();
@@ -26,9 +27,9 @@ namespace L10_2_FlowerMeadow {
             crc2.restore();
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
-            console.log("drawCloud", this.position.x);
+            // console.log("drawCloud", this.position.x);
 
-            let nPArticles: number = 40;
+            let nPArticles: number = ((Math.random() * 80) + 40);
             let radiusParticle: number = 20;
             let particle: Path2D = new Path2D();
 
@@ -39,7 +40,7 @@ namespace L10_2_FlowerMeadow {
             gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0.1)");
 
             crc2.save();
-          
+
 
             crc2.fillStyle = gradient;
 
@@ -53,21 +54,20 @@ namespace L10_2_FlowerMeadow {
                 crc2.translate(x, y);
                 crc2.fill(particle);
                 crc2.restore();
-            
+
             }
+            crc2.restore();
             crc2.restore();
 
         }
 
 
         move(_timeslice: number): void {
-
             super.move(_timeslice);
-
 
             let offset: Vector = this.velocity.copy();
             offset.x *= _timeslice * 1;
-            offset.y *= _timeslice * 0.2;
+            offset.y *= _timeslice * 0;
             this.position.add(offset);
 
             if (this.position.x < 0)
@@ -79,7 +79,9 @@ namespace L10_2_FlowerMeadow {
             if (this.position.y > crc2.canvas.height)
                 this.position.y -= crc2.canvas.height;
 
+
         }
+
     }
 
 

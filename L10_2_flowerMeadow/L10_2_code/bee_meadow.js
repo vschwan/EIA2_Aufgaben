@@ -4,7 +4,7 @@ var L10_2_FlowerMeadow;
     class Bee extends L10_2_FlowerMeadow.Moveable {
         constructor(_position) {
             super(_position);
-            this.velocity.random(40, 70);
+            this.velocity.random(40, 100);
         }
         draw() {
             //  console.log("drawBee", this.position.x, this.position.y);

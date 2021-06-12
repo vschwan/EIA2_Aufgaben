@@ -15,7 +15,9 @@ namespace L10_2_FlowerMeadow {
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
+      
         drawBackground();
+        handleClouds();
         handleBees();
 
 
@@ -50,34 +52,12 @@ namespace L10_2_FlowerMeadow {
         let sun: Background = new Background(posSun);
         sun.drawSun();
 
-        let posCloud1: Vector = new Vector(650, 100);
-        let sizeCloud1: Vector = new Vector(200, 30);
-        let cloud1: Cloud = new Cloud(posCloud1, sizeCloud1);
-        cloud1.draw();
-        moveables.push(cloud1);
-       
-
         let posMountain1: Vector = new Vector(0, horizon);
         let mountain1: Background = new Background(posMountain1);
         mountain1.drawMountain(70, 200, "HSL(216, 50%, 17%)", "HSL(216, 90%, 90%)");
 
-        let posCloud2: Vector = new Vector(150, 180);
-        let sizeCloud2: Vector = new Vector(100, 20);
-        let cloud2: Cloud = new Cloud(posCloud2, sizeCloud2);
-        cloud2.draw();
-        moveables.push(cloud2);
-      
-
         let mountain2: Background = new Background(posMountain1);
         mountain2.drawMountain(50, 150, "HSL(216, 15%, 17%)", "HSL(216, 22%, 58%)");
-
-        let posCloud3: Vector = new Vector(300, 120);
-        let sizeCloud3: Vector = new Vector(180, 30);
-        let cloud3: Cloud = new Cloud(posCloud3, sizeCloud3);
-        cloud3.draw();
-        moveables.push(cloud3);
-        
-
 
         let posTrees: Vector = new Vector(canvas.width / 2 - 5, 255);
         let sizeTrees: Vector = new Vector(canvas.width, 10);
@@ -94,6 +74,50 @@ namespace L10_2_FlowerMeadow {
 
     }
 
+ 
+
+
+    function handleClouds(): void {
+
+        let k: number = 3;
+
+        for (let i: number = 0; i < k; i++) {
+
+            let xPos: number = (Math.random() * canvas.width);
+            let yPos: number = ((Math.random() * 170) + 35);
+
+            let xSize: number = ((Math.random() * 150) + 90);
+            let ySize: number = ((Math.random() * 30) + 20);
+
+            let posCloud: Vector = new Vector(xPos, yPos);
+            let sizeCloud: Vector = new Vector(xSize, ySize);
+            let cloud: Cloud = new Cloud(posCloud, sizeCloud);
+            cloud.draw();
+            moveables.push(cloud);
+
+        }
+
+
+        // let posCloud1: Vector = new Vector(650, 100);
+        // let sizeCloud1: Vector = new Vector(200, 30);
+        // let cloud1: Cloud = new Cloud(posCloud1, sizeCloud1);
+        // cloud1.draw();
+        // moveables.push(cloud1);
+
+
+        // let posCloud2: Vector = new Vector(150, 180);
+        // let sizeCloud2: Vector = new Vector(100, 20);
+        // let cloud2: Cloud = new Cloud(posCloud2, sizeCloud2);
+        // cloud2.draw();
+        // moveables.push(cloud2);
+
+        // let posCloud3: Vector = new Vector(300, 120);
+        // let sizeCloud3: Vector = new Vector(180, 30);
+        // let cloud3: Cloud = new Cloud(posCloud3, sizeCloud3);
+        // cloud3.draw();
+        // moveables.push(cloud3);
+    }
+
     function handleFlowers(): void {
         let nFlowers: number = 10;
 
@@ -107,7 +131,7 @@ namespace L10_2_FlowerMeadow {
             flower.drawRoundFlower();
         }
 
-        
+
         for (let i: number = 0; i < nFlowers; i++) {
 
             let x: number = (Math.random() * canvas.width);
@@ -117,10 +141,7 @@ namespace L10_2_FlowerMeadow {
             let flower: Flower = new Flower(posFlower);
             flower.drawOvalFlower();
         }
-
     }
-
-    
 
 
     function handleBees(): void {
@@ -136,11 +157,7 @@ namespace L10_2_FlowerMeadow {
             bee.draw();
             moveables.push(bee);
         }
-
-
     }
-
-
 
     function animate(): void {
 
