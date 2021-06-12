@@ -6,7 +6,7 @@ namespace L10_2_FlowerMeadow {
         constructor(_position: Vector, _size?: Vector) {
             super(_position);
 
-            this.velocity.add(new Vector(20, 0));
+            this.velocity.add(new Vector(15, 0));
 
             if (_position)
                 this.position = _position.copy();
@@ -25,7 +25,7 @@ namespace L10_2_FlowerMeadow {
             crc2.translate(this.position.x, this.position.y);
             // console.log("drawCloud", this.position.x);
 
-            let nPArticles: number = ((Math.random() * 80) + 40);
+            let nPArticles: number = ((Math.random() * 80) + 50);
             let radiusParticle: number = 20;
             let particle: Path2D = new Path2D();
 
@@ -62,7 +62,7 @@ namespace L10_2_FlowerMeadow {
 
             let offset: Vector = this.velocity.copy();
             offset.x *= _timeslice * 1;
-            offset.y *= _timeslice * 0.2;
+            offset.y *= _timeslice * 0.5;
             this.position.add(offset);
 
             if (this.position.x < 0)
