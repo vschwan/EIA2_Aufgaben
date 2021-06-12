@@ -5,8 +5,6 @@ namespace L10_2_FlowerMeadow {
 
         constructor(_position: Vector, _size?: Vector) {
             super(_position);
-            // this.velocity.x = this.velocity.x * 20;
-            // this.velocity.x = this.velocity.y;
 
             this.velocity.add(new Vector(20, 0));
 
@@ -20,8 +18,6 @@ namespace L10_2_FlowerMeadow {
             else
                 this.size = new Vector(0, 0);
         }
-
-
 
         draw(): void {
             crc2.restore();
@@ -58,7 +54,6 @@ namespace L10_2_FlowerMeadow {
             }
             crc2.restore();
             crc2.restore();
-
         }
 
 
@@ -67,7 +62,7 @@ namespace L10_2_FlowerMeadow {
 
             let offset: Vector = this.velocity.copy();
             offset.x *= _timeslice * 1;
-            offset.y *= _timeslice * 0;
+            offset.y *= _timeslice * 0.2;
             this.position.add(offset);
 
             if (this.position.x < 0)

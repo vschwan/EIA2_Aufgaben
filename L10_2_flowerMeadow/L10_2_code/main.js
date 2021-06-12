@@ -11,14 +11,6 @@ var L10_2_FlowerMeadow;
         handleClouds();
         handleBees();
         window.setInterval(animate, 20);
-        //  drawSun({ x: 400, y: 180 });
-        //  drawCloud({ x: 650, y: 100 }, { x: 200, y: 30 });
-        //  drawMountains(posMountains, 70, 200, "HSL(216, 50%, 17%)", "HSL(216, 90%, 90%)");
-        // drawCloud({ x: 150, y: 180 }, { x: 100, y: 20 });
-        // drawMountains({ x: 0, y: horizon }, 50, 150, "HSL(216, 15%, 17%)", "HSL(216, 22%, 58%)");
-        // drawCloud({ x: 300, y: 120 }, { x: 180, y: 30 });
-        // drawTree({ x: canvas.width / 2 - 5, y: 255 }, { x: canvas.width, y: 10 });
-        // drawHills({ x: 0, y: horizon });
     }
     function drawBackground() {
         console.log("drawBackground");

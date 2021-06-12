@@ -54,7 +54,6 @@ namespace L10_2_FlowerMeadow {
             crc2.save();
             crc2.restore();
             crc2.restore();
-
         }
 
         drawOvalFlower(): void {
@@ -99,7 +98,6 @@ namespace L10_2_FlowerMeadow {
             crc2.save();
             crc2.restore();
             crc2.restore();
-
         }
 
         drawDropFlower(): void {

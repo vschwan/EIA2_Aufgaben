@@ -4,8 +4,6 @@ var L10_2_FlowerMeadow;
     class Cloud extends L10_2_FlowerMeadow.Moveable {
         constructor(_position, _size) {
             super(_position);
-            // this.velocity.x = this.velocity.x * 20;
-            // this.velocity.x = this.velocity.y;
             this.velocity.add(new L10_2_FlowerMeadow.Vector(20, 0));
             if (_position)
                 this.position = _position.copy();
@@ -46,7 +44,7 @@ var L10_2_FlowerMeadow;
             super.move(_timeslice);
             let offset = this.velocity.copy();
             offset.x *= _timeslice * 1;
-            offset.y *= _timeslice * 0;
+            offset.y *= _timeslice * 0.2;
             this.position.add(offset);
             if (this.position.x < 0)
                 this.position.x += (L10_2_FlowerMeadow.crc2.canvas.width);
