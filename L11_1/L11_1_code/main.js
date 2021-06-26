@@ -40,6 +40,7 @@ var L11_1_FlowerMeadow;
         let hills = new L11_1_FlowerMeadow.Background(poshills);
         hills.drawHills();
         handleFlowers();
+        drawHive();
         background = L11_1_FlowerMeadow.crc2.getImageData(0, 0, L11_1_FlowerMeadow.canvas.width, L11_1_FlowerMeadow.canvas.height);
     }
     function handleClouds() {
@@ -115,6 +116,8 @@ var L11_1_FlowerMeadow;
                 flower.fillnectar(nectarFillLevel);
             } //hab mich an dem orientiert was Marcel Ritter gemacht hat, aber 
             //dann offenschtlich nciht hinbekommen :D immer gut 
+        }
+        function drawHive() {
         }
     }
 })(L11_1_FlowerMeadow || (L11_1_FlowerMeadow = {}));

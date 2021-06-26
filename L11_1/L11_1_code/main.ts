@@ -60,6 +60,7 @@ namespace L11_1_FlowerMeadow {
         hills.drawHills();
 
         handleFlowers();
+        drawHive();
 
         background = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
@@ -179,8 +180,12 @@ namespace L11_1_FlowerMeadow {
             //dann offenschtlich nciht hinbekommen :D immer gut 
         }
 
-    }
+        
 
+    }
+    function drawHive():void{
+            
+    }
 
 
 }
