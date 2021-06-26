@@ -117,8 +117,8 @@ var L11_1_FlowerMeadow;
             } //hab mich an dem orientiert was Marcel Ritter gemacht hat, aber 
             //dann offenschtlich nciht hinbekommen :D immer gut 
         }
-        function drawHive() {
-        }
+    }
+    function drawHive() {
     }
 })(L11_1_FlowerMeadow || (L11_1_FlowerMeadow = {}));
 //# sourceMappingURL=main.js.map
