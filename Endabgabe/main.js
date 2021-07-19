@@ -11,6 +11,7 @@ var footballSimulation;
     let removePlayer;
     let givePlayerNewPos;
     let pauseAnimation = false;
+    let shootBall = false;
     let newBallpos;
     let selection;
     let createNewPlayerTA;
@@ -259,7 +260,7 @@ var footballSimulation;
     function drawBall() {
         let posBall = new footballSimulation.Vector(footballSimulation.crc2.canvas.width / 2, footballSimulation.crc2.canvas.height / 2);
         ball = new footballSimulation.Ball(posBall);
-        ball.speed = 240;
+        ball.speed = 20;
         ball.draw();
         moveables.push(ball);
     }
@@ -291,6 +292,7 @@ var footballSimulation;
         console.log("Balldestination: x:" + x + ", y:" + y);
         newBallpos = new footballSimulation.Vector(x, y);
         console.log(newBallpos);
+        shootBall = true;
     }
     function createNewPlayer(_createNewPlayer) {
         let teamASelection = document.querySelector("#" + teamA);
@@ -390,16 +392,23 @@ var footballSimulation;
     }
     function animate() {
         //    requestAnimationFrame(animate);
+        handlePlayerBallApproach();
+        showScoreline();
         footballSimulation.crc2.putImageData(background, 0, 0);
         for (let object of moveables) {
-            if (pauseAnimation == true) {
+            if (object instanceof footballSimulation.Ball && shootBall == true) {
+                // object.move(newBallpos);
+                object.position = newBallpos;
                 object.draw();
             }
-            else if (pauseAnimation == false && object instanceof footballSimulation.Ball) {
-                console.log(object, moveables, newBallpos);
+            else if (pauseAnimation == true) {
                 object.draw();
-                object.move(newBallpos);
             }
+            // else if (pauseAnimation == false && object instanceof Ball) {
+            //     console.log(object, moveables, newBallpos);
+            //     object.draw();
+            //     object.move(newBallpos);
+            // }
             else if (object instanceof footballSimulation.Referee || object instanceof footballSimulation.AssistantReferee) {
                 object.draw();
                 object.move(posBall);

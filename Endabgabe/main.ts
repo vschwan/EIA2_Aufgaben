@@ -14,6 +14,7 @@ namespace footballSimulation {
     let removePlayer: HTMLButtonElement;
     let givePlayerNewPos: HTMLButtonElement;
     let pauseAnimation: boolean = false;
+    let shootBall: boolean = false;
     let newBallpos: Vector;
     let selection: HTMLSelectElement;
     let createNewPlayerTA: HTMLButtonElement;
@@ -40,6 +41,8 @@ namespace footballSimulation {
     let playerPositionY: HTMLInputElement;
     let resetPlayerSettings: HTMLButtonElement;
     let submitPlayerSettings: HTMLButtonElement;
+
+
 
 
 
@@ -303,10 +306,9 @@ namespace footballSimulation {
     function drawBall(): void {
         let posBall: Vector = new Vector(crc2.canvas.width / 2, crc2.canvas.height / 2);
         ball = new Ball(posBall);
-        ball.speed = 240;
+        ball.speed = 20;
         ball.draw();
         moveables.push(ball);
-
     }
 
     //check if ball near player
@@ -341,6 +343,7 @@ namespace footballSimulation {
         console.log("Balldestination: x:" + x + ", y:" + y);
         newBallpos = new Vector(x, y);
         console.log(newBallpos);
+        shootBall = true;
 
     }
 
@@ -461,20 +464,28 @@ namespace footballSimulation {
 
     function animate(): void {
         //    requestAnimationFrame(animate);
-        crc2.putImageData(background, 0, 0);
+        handlePlayerBallApproach();
+        showScoreline();
 
+        crc2.putImageData(background, 0, 0);
 
 
         for (let object of moveables) {
 
-            if (pauseAnimation == true) {
+            if (object instanceof Ball && shootBall == true) {
+                // object.move(newBallpos);
+                object.position = newBallpos;
                 object.draw();
             }
-            else if (pauseAnimation == false && object instanceof Ball) {
-                console.log(object, moveables, newBallpos);
+
+            else if (pauseAnimation == true) {
                 object.draw();
-                object.move(newBallpos);
             }
+            // else if (pauseAnimation == false && object instanceof Ball) {
+            //     console.log(object, moveables, newBallpos);
+            //     object.draw();
+            //     object.move(newBallpos);
+            // }
             else if (object instanceof Referee || object instanceof AssistantReferee) {
                 object.draw();
                 object.move(posBall);
@@ -486,13 +497,13 @@ namespace footballSimulation {
             else if (object instanceof Player && object.ballinRadius == false) {
                 object.draw();
                 object.move(object.startPos);
-
             }
 
         }
-
         handlePlayerBallApproach();
         showScoreline();
+
+
 
     }
 }
