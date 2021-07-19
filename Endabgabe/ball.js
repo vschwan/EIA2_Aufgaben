@@ -3,8 +3,8 @@ var footballSimulation;
 (function (footballSimulation) {
     class Ball extends footballSimulation.Moveables {
         constructor() {
-            //  friction: number = 1;
             super(...arguments);
+            //  friction: number = 1;
             this.radius = 8;
         }
         draw() {
@@ -21,7 +21,7 @@ var footballSimulation;
             footballSimulation.crc2.restore();
         }
         move(_newBallpos) {
-            console.log(_newBallpos);
+            // console.log(_newBallpos);
             let difference = footballSimulation.Vector.getDifference(_newBallpos, this.position);
             difference.scale(this.speed / 1000);
             this.position.add(difference);

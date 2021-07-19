@@ -27,7 +27,7 @@ var footballSimulation;
             else {
                 this.ballinRadius = false;
             }
-            if (distance <= 10) {
+            if (distance <= 150) {
                 this.ballContact = true;
             }
             else {
@@ -80,6 +80,9 @@ var footballSimulation;
             if (!this.ballContact) {
                 // super.move(_newBallpos);
                 let difference = footballSimulation.Vector.getDifference(_newPos, this.position);
+                if (difference.length < 10) {
+                    return;
+                }
                 difference = difference.norm(difference);
                 //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
                 difference.scale(this.speed / 50); //  difference.scale(this.speed); ?

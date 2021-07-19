@@ -34,7 +34,7 @@ namespace footballSimulation {
             let distY: number = this.position.y - _posBall.y;
 
             let rSum: number = _radiusBall + Player.radius;
-            let distance: number = (distX * distX) + (distY * distY) ;
+            let distance: number = (distX * distX) + (distY * distY);
 
             if (distance <= rSum * rSum) {
 
@@ -43,7 +43,7 @@ namespace footballSimulation {
                 this.ballinRadius = false;
             }
 
-            if (distance <= 10) {
+            if (distance <= 150) {
                 this.ballContact = true;
             } else {
                 this.ballContact = false;
@@ -111,6 +111,9 @@ namespace footballSimulation {
             if (!this.ballContact) {
                 // super.move(_newBallpos);
                 let difference: Vector = Vector.getDifference(_newPos, this.position);
+                if (difference.length < 10) {
+                    return;
+                }
                 difference = difference.norm(difference);
                 //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
                 difference.scale(this.speed / 50); //  difference.scale(this.speed); ?

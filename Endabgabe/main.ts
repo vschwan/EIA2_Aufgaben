@@ -15,6 +15,8 @@ namespace footballSimulation {
     let givePlayerNewPos: HTMLButtonElement;
     let pauseAnimation: boolean = false;
     let shootBall: boolean = false;
+    let goalTA: boolean = false;
+    let goalTB: boolean = false;
     let newBallpos: Vector;
     let selection: HTMLSelectElement;
     let createNewPlayerTA: HTMLButtonElement;
@@ -41,6 +43,10 @@ namespace footballSimulation {
     let playerPositionY: HTMLInputElement;
     let resetPlayerSettings: HTMLButtonElement;
     let submitPlayerSettings: HTMLButtonElement;
+
+    let scoreTA: number = 0;
+    let scoreTB: number = 0;
+    let showScore: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#currentScore");
 
 
 
@@ -296,6 +302,7 @@ namespace footballSimulation {
         let posReferee: Vector = new Vector(crc2.canvas.width / 2, crc2.canvas.height / 4);
         let referee: Referee = new Referee(posReferee);
         //  referee.draw();
+        referee.speed = 25;
         moveables.push(referee);
         background = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // let posPlayer: Vector = new Vector(50, 50);
@@ -307,7 +314,7 @@ namespace footballSimulation {
         let posBall: Vector = new Vector(crc2.canvas.width / 2, crc2.canvas.height / 2);
         ball = new Ball(posBall);
         ball.speed = 20;
-        //ball.draw();
+        // ball.draw();
         moveables.push(ball);
     }
 
@@ -341,9 +348,12 @@ namespace footballSimulation {
         let x: number = event.clientX - rect.left;
         let y: number = event.clientY - rect.top;
         //  console.log("Balldestination: x:" + x + ", y:" + y);
-        newBallpos = new Vector(x, y);
-        //  console.log(newBallpos);
-        shootBall = true;
+
+        if (pauseAnimation == true) {
+            newBallpos = new Vector(x, y);
+            //  console.log(newBallpos);
+            shootBall = true;
+        }
 
     }
 
@@ -452,13 +462,16 @@ namespace footballSimulation {
 
     function showScoreline(): void {
         let showBallPossession: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#currentBallPossession");
-        let showScore: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#currentScore");
+
 
         for (let player of moveables) {
             if (player instanceof Player && player.ballContact == true) {
                 showBallPossession.innerText = "Player " + player.shirtNumber + " of " + player.team;
             }
         }
+
+
+
     }
 
 
@@ -469,8 +482,24 @@ namespace footballSimulation {
 
         crc2.putImageData(background, 0, 0);
 
+      //  console.log(ball.position);
+        if (ball.position.x < 70 && ball.position.y > 137 && ball.position.y < 247) {
+            scoreTA = + 1;
+            console.log(scoreTA);
+            showScore.innerText = scoreTA + ":" + scoreTB;
+
+            //right goal
+        } else if (ball.position.x > 430 && ball.position.y > 137 && ball.position.y < 247) {
+            scoreTB = +1;
+            showScore.innerHTML = scoreTA + ":" + scoreTB;
+        }
+
+
+
 
         for (let object of moveables) {
+
+
 
             if (object instanceof Ball && shootBall == true) {
                 // object.move(newBallpos);
@@ -489,11 +518,13 @@ namespace footballSimulation {
             else if (pauseAnimation == true) {
                 object.draw();
             }
-            // else if (pauseAnimation == false && object instanceof Ball) {
-            //     console.log(object, moveables, newBallpos);
-            //     object.draw();
-            //     object.move(newBallpos);
-            // }
+            else if (pauseAnimation == false && object instanceof Ball) {
+                console.log(object, moveables, newBallpos);
+                object.draw();
+                //   object.move(newBallpos);# //left goal
+
+
+            }
             else if (object instanceof Referee || object instanceof AssistantReferee) {
                 object.draw();
                 object.move(posBall);
@@ -506,6 +537,10 @@ namespace footballSimulation {
                 object.draw();
                 object.move(object.startPos);
             }
+
+
+
+
 
         }
         handlePlayerBallApproach();

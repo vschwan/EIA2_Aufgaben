@@ -13,13 +13,14 @@ var footballSimulation;
             footballSimulation.crc2.restore();
         }
         move(_newBallpos) {
-            // referee can move anywhere within the outer lines (except goal area)
-            if (this.position.x < 75 || this.position.x > 925)
-                this.velocity.x = -this.velocity.x;
-            if (this.position.y < 25 || this.position.y > 625)
-                this.velocity.y = -this.velocity.y;
-            // this.position.x += this.velocity.x;
-            // this.position.y += this.velocity.y;
+            // super.move(_newBallpos);
+            let difference = footballSimulation.Vector.getDifference(_newBallpos, this.position);
+            if (difference.length < 40)
+                return;
+            difference = difference.norm(difference);
+            //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
+            difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
+            this.position.add(difference);
         }
     }
     footballSimulation.Referee = Referee;

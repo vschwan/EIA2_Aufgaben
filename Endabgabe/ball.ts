@@ -2,13 +2,8 @@
 namespace footballSimulation {
 
     export class Ball extends Moveables {
-
-
         //  friction: number = 1;
-
         radius: number = 8;
-
-
         draw(): void {
 
             crc2.save();
@@ -28,7 +23,7 @@ namespace footballSimulation {
         }
 
         public move(_newBallpos: Vector): void {
-            console.log(_newBallpos);
+           // console.log(_newBallpos);
 
             let difference: Vector = Vector.getDifference(_newBallpos, this.position);
       
@@ -36,5 +31,7 @@ namespace footballSimulation {
             this.position.add(difference);
             //this.draw();
         }
+
+
     }
 }
