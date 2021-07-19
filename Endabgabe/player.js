@@ -33,17 +33,6 @@ var footballSimulation;
             else {
                 this.ballContact = false;
             }
-            /* let distX: number = this.position.x - _posvirus.x;
-                        let distY: number = this.position.y - _posvirus.y;
-            
-                        let rSum: number = _radiusvirus + HumanCell.radius + 10;
-                        let distance: number = (distX * distX) + (distY * distY);
-            
-                        if (distance <= rSum * rSum) {
-                            return true;
-                        } else {
-                            return false;
-                        } */
         }
         draw() {
             //  console.log("drawPlayer");
@@ -56,18 +45,19 @@ var footballSimulation;
             footballSimulation.crc2.stroke();
             footballSimulation.crc2.fill();
             footballSimulation.crc2.restore();
-            // //radius
-            // crc2.save();
-            // crc2.translate(this.position.x, this.position.y);
-            // crc2.beginPath();
-            // if (this.ballinRadius == true) {
-            //     crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
-            // } else {
-            //     crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
-            // }
-            // crc2.arc(0, 0, 40, 0, 2 * Math.PI);
-            // crc2.fill();
-            // crc2.restore();
+            //radius
+            footballSimulation.crc2.save();
+            footballSimulation.crc2.translate(this.position.x, this.position.y);
+            footballSimulation.crc2.beginPath();
+            if (this.ballinRadius == true) {
+                footballSimulation.crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
+            }
+            else {
+                footballSimulation.crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
+            }
+            footballSimulation.crc2.arc(0, 0, 40, 0, 2 * Math.PI);
+            footballSimulation.crc2.fill();
+            footballSimulation.crc2.restore();
             //tshirtNumber
             footballSimulation.crc2.save();
             footballSimulation.crc2.translate(this.position.x, this.position.y);
@@ -85,6 +75,8 @@ var footballSimulation;
             // //    let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
             // difference.scale(this.speed / 500); //  difference.scale(this.speed); ?
             // this.position.add(difference);
+            if (_newPos.x == this.position.x && _newPos.y == this.position.y)
+                return;
             if (!this.ballContact) {
                 // super.move(_newBallpos);
                 let difference = footballSimulation.Vector.getDifference(_newPos, this.position);

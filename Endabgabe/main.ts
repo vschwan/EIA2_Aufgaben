@@ -487,8 +487,6 @@ namespace footballSimulation {
 
             }
 
-
-
         }
 
         handlePlayerBallApproach();

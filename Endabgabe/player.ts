@@ -48,19 +48,6 @@ namespace footballSimulation {
             } else {
                 this.ballContact = false;
             }
-            /* let distX: number = this.position.x - _posvirus.x;
-                        let distY: number = this.position.y - _posvirus.y;
-            
-                        let rSum: number = _radiusvirus + HumanCell.radius + 10;
-                        let distance: number = (distX * distX) + (distY * distY);
-            
-                        if (distance <= rSum * rSum) {
-                            return true;
-                        } else {
-                            return false;
-                        } */
-
-
         }
 
 
@@ -80,21 +67,21 @@ namespace footballSimulation {
 
             crc2.restore();
 
-            // //radius
-            // crc2.save();
-            // crc2.translate(this.position.x, this.position.y);
-            // crc2.beginPath();
+            //radius
+            crc2.save();
+            crc2.translate(this.position.x, this.position.y);
+            crc2.beginPath();
 
 
-            // if (this.ballinRadius == true) {
-            //     crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
-            // } else {
-            //     crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
-            // }
+            if (this.ballinRadius == true) {
+                crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
+            } else {
+                crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
+            }
 
-            // crc2.arc(0, 0, 40, 0, 2 * Math.PI);
-            // crc2.fill();
-            // crc2.restore();
+            crc2.arc(0, 0, 40, 0, 2 * Math.PI);
+            crc2.fill();
+            crc2.restore();
 
             //tshirtNumber
             crc2.save();
@@ -119,16 +106,17 @@ namespace footballSimulation {
             // //    let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
             // difference.scale(this.speed / 500); //  difference.scale(this.speed); ?
             // this.position.add(difference);
-
+            if (_newPos.x == this.position.x && _newPos.y == this.position.y)
+                return;
             if (!this.ballContact) {
-               // super.move(_newBallpos);
+                // super.move(_newBallpos);
                 let difference: Vector = Vector.getDifference(_newPos, this.position);
                 difference = difference.norm(difference);
-              //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
+                //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
                 difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
                 this.position.add(difference);
             }
-        
+
         }
 
     }

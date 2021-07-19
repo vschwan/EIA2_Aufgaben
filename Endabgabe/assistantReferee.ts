@@ -17,6 +17,8 @@ namespace footballSimulation {
             crc2.fill();
 
             crc2.restore();
+
+            
         }
 
         move(_newBallpos: Vector): void {
