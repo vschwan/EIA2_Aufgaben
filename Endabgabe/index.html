@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="football.css">
+    <script src="./main.js"></script>
+    <script src="./background.js"></script>
+    <script src="./moveables.js"></script>
+    <script src="./ball.js"></script>
+    <script src="./vector.js"></script>
+    <script src="./player.js"></script>
+    <script src="./referee.js"></script>
+    <script src="./assistantReferee.js"></script>
+    <title>Endabgabe_SS21_Fußball_Simulation</title>
+</head>
+
+<body>
+
+
+    <header>
+        <h1>football-simulation</h1>
+
+    </header>
+
+
+
+    <div id="start">
+        <span id="infotext">Hello,
+            you can either adjust the settings as you wish and then click on the start button, <br>
+            or you press the start-button right away and play with the default settings or change them afterwards.
+            <button type="button" id="startGame">start game</button>
+        </span>
+    </div>
+
+    <form id="teamSettings" method="GET">
+        <div>
+            <h2>team settings</h2>
+
+            <fieldset>
+                <legend>Team A</legend>
+                <label for="teamA">Team A:</label>
+                <input type="text" name="teamA" id="teamA" value="England">
+
+                <label for="teamAColour">Team A Colour:</label>
+                <input type="color" name="teamAColour" id="teamAColour" value="#000000">
+
+                <br>
+                <label for="maxVelocityTA">max-velocity of players:</label>
+                <input type="number" name="maxVelocityTA" id="maxVelocityTA" value="">
+                <br>
+                <label for="minVelocityTA">min-velocity of players:</label>
+                <input type="number" name="minVelocityTA" id="minVelocityTA" value="">
+                <br>
+                <label for="maxPrecisionTA">max-precision of players:</label>
+                <input type="number" name="maxPrecisionTA" id="maxPrecisionTA" value="">
+                <br>
+                <label for="minPrecisionTA">min-precision of players:</label>
+                <input type="number" name="minPrecisionTA" id="minPrecisionTA" value="">
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Team B</legend>
+
+                <label for="teamB">Team B:</label>
+                <input type="text" name="teamB" id="teamB" value="Deutschland">
+
+                <label for="teamBColour">Team B Colour:</label>
+                <input type="color" name="teamBColour" id="teamBColour" value="#ffffff">
+                <br>
+                <label for="maxVelocityTB">max-velocity of players:</label>
+                <input type="number" name="maxVelocityTB" id="maxVelocityTB" value="">
+                <br>
+                <label for="minVelocityTB">min-velocity of players:</label>
+                <input type="number" name="minVelocityTB" id="minVelocityTB" value="">
+                <br>
+                <label for="maxPrecisionTB">max-precision of players:</label>
+                <input type="number" name="maxPrecisionTB" id="maxPrecisionTB" value="">
+                <br>
+                <label for="minPrecisionTB">min-precision of players:</label>
+                <input type="number" name="minPrecisionTB" id="minPrecisionTB" value="">
+            </fieldset>
+            <br>
+
+            <button type="reset" form="teamSettings">Reset Settings</button>
+        </div>
+    </form>
+
+
+    <canvas width="500" height="380"></canvas>
+
+
+
+    <div id="scoreline">
+        <h4>What's happening:</h4>
+        <p>Current ball possession: <span id="currentBallPossession">player xy</span></p>
+        <p>score: <span id="currentScore"></span></p>
+    </div>
+
+    <div id="generalSettings">
+        <h2>general settings</h2>
+
+        <button type="button" id="restartGame">restart game</button><br>
+
+        <button type="button" id="createnewPlayerTeamA">create new player for Team A</button><br>
+        <div id="newPlayerTA"> 
+        </div>
+        <button type="button" id="createnewPlayerTeamB">create new player for Team B</button><br>
+        <div id="newPlayerTB">
+        </div>
+      
+    </div>
+
+    <form id="playerSettings" method="GET">
+        <div>
+            <h2>player settings</h2>
+            <fieldset id="select">
+                <legend>player</legend>
+
+            </fieldset>
+            <fieldset>
+               
+                <legend>player position</legend>
+                <label for="playerPosition">position x</label>
+                <input type="number" name="playerPositionX" id="playerPositionX" value="" max="480" min="20" disabled>
+                <label for="playerPosition">position y</label>
+                <input type="number" name="playerPositionY" id="playerPositionY" value="" max="360" min="20" disabled>
+            </fieldset>
+
+            <button type="reset" form="playerSettings" id="resetPlayerSettings" disabled>Reset Settings</button>
+            <button type="button" form="playerSettings" id="submitPlayerSettings" disabled>Submit</button>
+            <!-- evtl input type="button" versuchen? unterschied?
+        oder button type="submit" ? idk -->
+        </div>
+    </form>
+
+
+</body>
+
+</html>

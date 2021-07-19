@@ -9,7 +9,7 @@ namespace L11_1_FlowerMeadow {
     let moveables: Moveable[] = [];
     let background: ImageData;
     let flowers: Flower[] = [];
-   
+
 
 
     function handleLoad(): void {
@@ -66,9 +66,6 @@ namespace L11_1_FlowerMeadow {
 
     }
 
-
-
-
     function handleClouds(): void {
 
         let k: number = 3;
@@ -96,7 +93,7 @@ namespace L11_1_FlowerMeadow {
 
             let x: number = (Math.random() * canvas.width);
             let y: number = (320 + Math.random() * canvas.height / 4);
-         
+
 
             let posFlower: Vector = new Vector(x, y);
             let ovalFlower: OvalFlower = new OvalFlower(posFlower);
@@ -109,7 +106,7 @@ namespace L11_1_FlowerMeadow {
 
             let x: number = (Math.random() * canvas.width);
             let y: number = (320 + Math.random() * canvas.height / 4);
-         
+
 
             let posFlower: Vector = new Vector(x, y);
             let dropFlower: DropFlower = new DropFlower(posFlower);
@@ -122,7 +119,7 @@ namespace L11_1_FlowerMeadow {
 
             let x: number = (Math.random() * canvas.width);
             let y: number = (320 + Math.random() * canvas.height / 4);
-       
+
 
             let posFlower: Vector = new Vector(x, y);
             let roundFlower: RoundFlower = new RoundFlower(posFlower);
@@ -170,9 +167,9 @@ namespace L11_1_FlowerMeadow {
             //console.log(randomNumber);
             if (nectarFillLevel <= 30) {
                 nectarFillLevel += randomNumber;
-               // console.log(nectarFillLevel);
+                // console.log(nectarFillLevel);
                 flower.fillnectar(nectarFillLevel);
-                
+
             } else {
                 nectarFillLevel = 30;
                 flower.fillnectar(nectarFillLevel);
@@ -180,11 +177,11 @@ namespace L11_1_FlowerMeadow {
             //dann offenschtlich nciht hinbekommen :D immer gut 
         }
 
-        
+
 
     }
-    function drawHive():void{
-            
+    function drawHive(): void {
+        //bleh
     }
 
 

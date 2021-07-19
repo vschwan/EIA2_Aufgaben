@@ -1,0 +1,48 @@
+div {
+	border: thin solid black;
+	margin: 0.5em;
+	height:fit-content;
+
+	
+}
+body {
+	display: grid;
+	grid-template-columns: 50% auto;
+	grid-template-rows: auto auto
+}
+
+header {
+	grid-column: span 2;
+	text-align: center;
+}
+
+button{
+    margin: 0.5em;
+	width:fit-content;
+}
+#start{
+	display: inherit;
+}
+
+#infotext{
+	display: contents;
+}
+
+#generalSettings{
+display: none;
+
+}
+
+#scoreline{
+display: none;
+
+
+}
+
+#playerSettings{
+	display:none;
+}
+
+#teamSettings{
+	display:inherit;
+}
