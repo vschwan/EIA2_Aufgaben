@@ -70,7 +70,7 @@ var footballSimulation;
         move(_newBallpos) {
             super.move(_newBallpos);
             let difference = footballSimulation.Vector.getDifference(_newBallpos, this.position);
-            //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
+            //    let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
             difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
             this.position.add(difference);
         }

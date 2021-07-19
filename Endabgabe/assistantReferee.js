@@ -13,10 +13,10 @@ var footballSimulation;
             footballSimulation.crc2.restore();
         }
         move(_newBallpos) {
-            //     if (this.position.x < 20 || this.position.x > canvas.width - 20)
-            //         this.velocity.x = -this.velocity.x;
-            //     this.position.x += this.velocity.x;
-            //    // this.draw();
+            if (this.position.x < 20 || this.position.x > footballSimulation.canvas.width - 20)
+                this.velocity.x = -this.velocity.x;
+            this.position.x += this.velocity.x;
+            // this.draw();
         }
     }
     footballSimulation.AssistantReferee = AssistantReferee;
