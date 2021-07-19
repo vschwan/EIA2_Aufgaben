@@ -31,7 +31,7 @@ var footballSimulation;
                 let difference = footballSimulation.Vector.getDifference(_newBallpos, this.position);
                 // let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
                 // difference.scale(this.speed / length);// controls ball speed
-                difference.scale(1 / 30);
+                difference.scale(1 / 20);
                 this.position.add(difference);
                 /*
                 // ball needs to go towards clicked position (but depending on distance of destination and precision of shooting player (as PARAMETERS?))

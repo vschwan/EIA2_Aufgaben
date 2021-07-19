@@ -275,6 +275,7 @@ var footballSimulation;
                     pauseAnimation = true;
                     footballSimulation.canvas.addEventListener("click", function (e) {
                         handleBallContact(footballSimulation.canvas, e);
+                        pauseAnimation = false;
                     });
                 }
                 else if (player.ballinRadius == true) {
@@ -290,7 +291,6 @@ var footballSimulation;
         console.log("Balldestination: x:" + x + ", y:" + y);
         newBallpos = new footballSimulation.Vector(x, y);
         console.log(newBallpos);
-        pauseAnimation = false;
     }
     function createNewPlayer(_createNewPlayer) {
         let teamASelection = document.querySelector("#" + teamA);

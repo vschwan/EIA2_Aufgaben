@@ -322,6 +322,8 @@ namespace footballSimulation {
                     pauseAnimation = true;
                     canvas.addEventListener("click", function (e: MouseEvent): void {
                         handleBallContact(canvas, e);
+
+                        pauseAnimation = false;
                     });
 
                 } else if (player.ballinRadius == true) {
@@ -339,7 +341,7 @@ namespace footballSimulation {
         console.log("Balldestination: x:" + x + ", y:" + y);
         newBallpos = new Vector(x, y);
         console.log(newBallpos);
-        pauseAnimation = false;
+
     }
 
     function createNewPlayer(_createNewPlayer: HTMLButtonElement): void {
