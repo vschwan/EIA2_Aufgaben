@@ -313,7 +313,7 @@ namespace footballSimulation {
     function handlePlayerBallApproach(): void {
         let ballRadius: number = ball.radius;
         posBall = ball.position;
-        console.log(posBall);
+       //console.log(posBall);
         for (let player of moveables) {
             if (player instanceof Player) {
                 player.checkforBallContact(ballRadius, posBall);
@@ -480,7 +480,6 @@ namespace footballSimulation {
             else if (object instanceof Player && object.ballinRadius == true) {
                 object.draw();
                 object.move(posBall);
-
             }
             else if (object instanceof Player && object.ballinRadius == false) {
                 object.draw();
@@ -491,5 +490,9 @@ namespace footballSimulation {
 
 
         }
+
+        handlePlayerBallApproach();
+        showScoreline();
+
     }
 }

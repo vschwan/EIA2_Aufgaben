@@ -39,6 +39,13 @@ namespace footballSimulation {
             return new Vector(this.x, this.y);
         }
 
+        norm(_vector: Vector): Vector {
+            let length: number = Math.sqrt(_vector.x * _vector.x + _vector.y * _vector.y);
+            let normVec: Vector = new Vector((1 / length) * _vector.x, (1 / length) * _vector.y);
+            return normVec;
+        }
+
+
         
 
     }

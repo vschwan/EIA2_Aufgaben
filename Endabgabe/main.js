@@ -267,7 +267,7 @@ var footballSimulation;
     function handlePlayerBallApproach() {
         let ballRadius = ball.radius;
         posBall = ball.position;
-        console.log(posBall);
+        //console.log(posBall);
         for (let player of moveables) {
             if (player instanceof footballSimulation.Player) {
                 player.checkforBallContact(ballRadius, posBall);
@@ -413,6 +413,8 @@ var footballSimulation;
                 //object.move(posBall);
             }
         }
+        handlePlayerBallApproach();
+        showScoreline();
     }
 })(footballSimulation || (footballSimulation = {}));
 //# sourceMappingURL=main.js.map

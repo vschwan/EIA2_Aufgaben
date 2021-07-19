@@ -22,7 +22,7 @@ var footballSimulation;
         }
         move(_newBallpos) {
             //  this.speed= idk, maybe account with speed
-            super.move(_newBallpos);
+            //  super.move(_newBallpos);
             if (this.position.x < 10 || this.position.x > (footballSimulation.canvas.width - 10)) {
                 this.draw();
             }

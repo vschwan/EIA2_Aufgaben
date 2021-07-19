@@ -30,7 +30,7 @@ namespace footballSimulation {
         public move(_newBallpos: Vector): void {
             //  this.speed= idk, maybe account with speed
 
-            super.move(_newBallpos);
+          //  super.move(_newBallpos);
             if (this.position.x < 10 || this.position.x > (canvas.width - 10)) {
                 this.draw();
             }

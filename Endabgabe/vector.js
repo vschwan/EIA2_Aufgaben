@@ -29,6 +29,11 @@ var footballSimulation;
         copy() {
             return new Vector(this.x, this.y);
         }
+        norm(_vector) {
+            let length = Math.sqrt(_vector.x * _vector.x + _vector.y * _vector.y);
+            let normVec = new Vector((1 / length) * _vector.x, (1 / length) * _vector.y);
+            return normVec;
+        }
     }
     footballSimulation.Vector = Vector;
 })(footballSimulation || (footballSimulation = {}));

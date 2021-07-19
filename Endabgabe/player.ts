@@ -34,7 +34,7 @@ namespace footballSimulation {
             let rSum: number = _radiusBall + Player.radius;
             let distance: number = (distX * distX) + (distY * distY);
 
-            if (distance <= (rSum * rSum)) {
+            if (distance <= rSum * rSum) {
 
                 this.ballinRadius = true;
             } else {
@@ -46,7 +46,17 @@ namespace footballSimulation {
             } else {
                 this.ballContact = false;
             }
-
+            /* let distX: number = this.position.x - _posvirus.x;
+                        let distY: number = this.position.y - _posvirus.y;
+            
+                        let rSum: number = _radiusvirus + HumanCell.radius + 10;
+                        let distance: number = (distX * distX) + (distY * distY);
+            
+                        if (distance <= rSum * rSum) {
+                            return true;
+                        } else {
+                            return false;
+                        } */
 
 
         }
@@ -102,13 +112,20 @@ namespace footballSimulation {
 
         public move(_newBallpos: Vector): void {
 
-            super.move(_newBallpos);
-            let difference: Vector = Vector.getDifference(_newBallpos, this.position);
-       //    let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
-            difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
-            this.position.add(difference);
+            // //  super.move(_newBallpos);
+            // let difference: Vector = Vector.getDifference(_newBallpos, this.position);
+            // //    let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
+            // difference.scale(this.speed / 500); //  difference.scale(this.speed); ?
+            // this.position.add(difference);
 
-
+            if (!this.ballContact) {
+               // super.move(_newBallpos);
+                let difference: Vector = Vector.getDifference(_newBallpos, this.position);
+                difference = difference.norm(difference);
+              //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
+                difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
+                this.position.add(difference);
+            }
         
         }
 
