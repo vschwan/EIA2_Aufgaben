@@ -34,7 +34,7 @@ namespace footballSimulation {
             let distY: number = this.position.y - _posBall.y;
 
             let rSum: number = _radiusBall + Player.radius;
-            let distance: number = (distX * distX) + (distY * distY);
+            let distance: number = (distX * distX) + (distY * distY) ;
 
             if (distance <= rSum * rSum) {
 

@@ -307,7 +307,7 @@ namespace footballSimulation {
         let posBall: Vector = new Vector(crc2.canvas.width / 2, crc2.canvas.height / 2);
         ball = new Ball(posBall);
         ball.speed = 20;
-        ball.draw();
+        //ball.draw();
         moveables.push(ball);
     }
 
@@ -340,9 +340,9 @@ namespace footballSimulation {
         let rect: DOMRect = <DOMRect>canvas.getBoundingClientRect();
         let x: number = event.clientX - rect.left;
         let y: number = event.clientY - rect.top;
-        console.log("Balldestination: x:" + x + ", y:" + y);
+        //  console.log("Balldestination: x:" + x + ", y:" + y);
         newBallpos = new Vector(x, y);
-        console.log(newBallpos);
+        //  console.log(newBallpos);
         shootBall = true;
 
     }
@@ -474,8 +474,16 @@ namespace footballSimulation {
 
             if (object instanceof Ball && shootBall == true) {
                 // object.move(newBallpos);
-                object.position = newBallpos;
+                // object.position = newBallpos;
                 object.draw();
+                object.move(newBallpos);
+
+                let difference: Vector = Vector.getDifference(newBallpos, object.position);
+                if (difference.length < 1) {
+                    pauseAnimation = false;
+                    shootBall = false;
+                }
+
             }
 
             else if (pauseAnimation == true) {

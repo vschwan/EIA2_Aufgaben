@@ -261,7 +261,7 @@ var footballSimulation;
         let posBall = new footballSimulation.Vector(footballSimulation.crc2.canvas.width / 2, footballSimulation.crc2.canvas.height / 2);
         ball = new footballSimulation.Ball(posBall);
         ball.speed = 20;
-        ball.draw();
+        //ball.draw();
         moveables.push(ball);
     }
     //check if ball near player
@@ -289,9 +289,9 @@ var footballSimulation;
         let rect = canvas.getBoundingClientRect();
         let x = event.clientX - rect.left;
         let y = event.clientY - rect.top;
-        console.log("Balldestination: x:" + x + ", y:" + y);
+        //  console.log("Balldestination: x:" + x + ", y:" + y);
         newBallpos = new footballSimulation.Vector(x, y);
-        console.log(newBallpos);
+        //  console.log(newBallpos);
         shootBall = true;
     }
     function createNewPlayer(_createNewPlayer) {
@@ -398,8 +398,14 @@ var footballSimulation;
         for (let object of moveables) {
             if (object instanceof footballSimulation.Ball && shootBall == true) {
                 // object.move(newBallpos);
-                object.position = newBallpos;
+                // object.position = newBallpos;
                 object.draw();
+                object.move(newBallpos);
+                let difference = footballSimulation.Vector.getDifference(newBallpos, object.position);
+                if (difference.length < 1) {
+                    pauseAnimation = false;
+                    shootBall = false;
+                }
             }
             else if (pauseAnimation == true) {
                 object.draw();

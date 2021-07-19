@@ -34,6 +34,9 @@ var footballSimulation;
             let normVec = new Vector((1 / length) * _vector.x, (1 / length) * _vector.y);
             return normVec;
         }
+        get length() {
+            return Math.hypot(this.x, this.y);
+        }
     }
     footballSimulation.Vector = Vector;
 })(footballSimulation || (footballSimulation = {}));

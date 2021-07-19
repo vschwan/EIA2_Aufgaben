@@ -44,6 +44,10 @@ namespace footballSimulation {
             let normVec: Vector = new Vector((1 / length) * _vector.x, (1 / length) * _vector.y);
             return normVec;
         }
+        public get length(): number {
+            return Math.hypot(this.x, this.y);
+        }
+
 
 
         

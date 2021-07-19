@@ -28,36 +28,13 @@ namespace footballSimulation {
         }
 
         public move(_newBallpos: Vector): void {
-            //  this.speed= idk, maybe account with speed
+            console.log(_newBallpos);
 
-            //   //  super.move(_newBallpos);
-            //     if (this.position.x < 10 || this.position.x > (canvas.width - 10)) {
-            //         this.draw();
-            //     }
-            //     if (this.position.y < 10 || this.position.y > (canvas.height - 10)) {
-            //         this.draw();
-
-            //         let difference: Vector = Vector.getDifference(_newBallpos, this.position);
-            //         // let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
-            //         // difference.scale(this.speed / length);// controls ball speed
-            //         difference.scale(1 / 20);
-            //         this.position.add(difference);
-
-            // if (_newBallpos.x == this.position.x && _newBallpos.y == this.position.y)
-            // return;
-            // let difference: Vector = Vector.getDifference(_newBallpos, this.position);
-            // difference = difference.norm(difference);
-            // //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
-            // difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
-            // this.position.add(difference);
-
-            // if (_newBallpos.x == this.position.x && _newBallpos.y == this.position.y)
-            // return;
-            // let distance: Vector = Vector.getDifference(this.newBallPos, this.position);
-            // distance.scale(0.01);
-            // this.position.add(distance);
-            // this.draw();
-  
+            let difference: Vector = Vector.getDifference(_newBallpos, this.position);
+      
+            difference.scale(this.speed / 1000);
+            this.position.add(difference);
+            //this.draw();
         }
     }
 }
