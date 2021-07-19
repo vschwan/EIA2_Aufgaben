@@ -78,7 +78,6 @@ var footballSimulation;
                     return;
                 }
                 difference = difference.norm(difference);
-                //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
                 difference.scale(this.speed / 50);
                 this.position.add(difference);
             }

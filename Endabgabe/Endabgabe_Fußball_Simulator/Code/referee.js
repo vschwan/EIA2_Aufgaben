@@ -13,13 +13,11 @@ var footballSimulation;
             footballSimulation.crc2.restore();
         }
         move(_newBallpos) {
-            // super.move(_newBallpos);
             let difference = footballSimulation.Vector.getDifference(_newBallpos, this.position);
             if (difference.length < 40)
                 return;
             difference = difference.norm(difference);
-            //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
-            difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
+            difference.scale(this.speed / 50);
             this.position.add(difference);
         }
     }
