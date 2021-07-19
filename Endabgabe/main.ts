@@ -132,7 +132,7 @@ namespace footballSimulation {
                     teamBmaxPrecision = Number(formData.get("maxPrecisionTB"));
                     teamBminPrecision = Number(formData.get("minPrecisionTB"));
                     let teamBposition: Vector[] = [new Vector(40, 180), new Vector(125, 95), new Vector(160, 190), new Vector(120, 295),
-                    new Vector(270, 95), new Vector(220, 265), new Vector(280, 160), new Vector(370, 210),
+                    new Vector(270, 95), new Vector(220, 265), new Vector(260, 200), new Vector(370, 210),
                     new Vector(330, 285), new Vector(420, 80), new Vector(420, 300)];
                     //  console.log(teamB, teamBColour, teamBmaxSpeed, teamBminSpeed, teamBmaxPrecision, teamBminPrecision);
                     createTeam(teamB, teamBColour, teamBspeed, teamBmaxPrecision, teamBminPrecision, teamBposition);
@@ -282,17 +282,17 @@ namespace footballSimulation {
     function drawReferees(): void {
         let posAssistantReferee1: Vector = new Vector(crc2.canvas.width / 2, 10);
         let assistantReferee1: AssistantReferee = new AssistantReferee(posAssistantReferee1, new Vector(4, 3));
-       // assistantReferee1.draw();
+        // assistantReferee1.draw();
         moveables.push(assistantReferee1); //zweiten parameter draw referees
 
         let posAssistantReferee2: Vector = new Vector(crc2.canvas.width / 2, crc2.canvas.height - 10);
         let assistantReferee2: AssistantReferee = new AssistantReferee(posAssistantReferee2, new Vector(8, 2));
-     //   assistantReferee2.draw();
+        //   assistantReferee2.draw();
         moveables.push(assistantReferee2);
 
         let posReferee: Vector = new Vector(crc2.canvas.width / 2, crc2.canvas.height / 4);
         let referee: Referee = new Referee(posReferee);
-      //  referee.draw();
+        //  referee.draw();
         moveables.push(referee);
         background = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // let posPlayer: Vector = new Vector(50, 50);
@@ -313,7 +313,7 @@ namespace footballSimulation {
     function handlePlayerBallApproach(): void {
         let ballRadius: number = ball.radius;
         posBall = ball.position;
-       //console.log(posBall);
+        //console.log(posBall);
         for (let player of moveables) {
             if (player instanceof Player) {
                 player.checkforBallContact(ballRadius, posBall);
@@ -461,7 +461,7 @@ namespace footballSimulation {
         //    requestAnimationFrame(animate);
         crc2.putImageData(background, 0, 0);
 
-     
+
 
         for (let object of moveables) {
 
@@ -483,7 +483,7 @@ namespace footballSimulation {
             }
             else if (object instanceof Player && object.ballinRadius == false) {
                 object.draw();
-                //object.move(posBall);
+                object.move(object.startPos);
 
             }
 

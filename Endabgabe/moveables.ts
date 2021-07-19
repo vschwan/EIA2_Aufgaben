@@ -21,10 +21,10 @@ namespace footballSimulation {
 
         public abstract draw(): void;
 
-        public move(_newBallpos: Vector): void {
+        // public move(_newBallpos: Vector): void {
            
 
-        }
+        // }
 
     }
 }

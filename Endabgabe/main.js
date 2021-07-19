@@ -111,7 +111,7 @@ var footballSimulation;
                     teamBmaxPrecision = Number(formData.get("maxPrecisionTB"));
                     teamBminPrecision = Number(formData.get("minPrecisionTB"));
                     let teamBposition = [new footballSimulation.Vector(40, 180), new footballSimulation.Vector(125, 95), new footballSimulation.Vector(160, 190), new footballSimulation.Vector(120, 295),
-                        new footballSimulation.Vector(270, 95), new footballSimulation.Vector(220, 265), new footballSimulation.Vector(280, 160), new footballSimulation.Vector(370, 210),
+                        new footballSimulation.Vector(270, 95), new footballSimulation.Vector(220, 265), new footballSimulation.Vector(260, 200), new footballSimulation.Vector(370, 210),
                         new footballSimulation.Vector(330, 285), new footballSimulation.Vector(420, 80), new footballSimulation.Vector(420, 300)];
                     //  console.log(teamB, teamBColour, teamBmaxSpeed, teamBminSpeed, teamBmaxPrecision, teamBminPrecision);
                     createTeam(teamB, teamBColour, teamBspeed, teamBmaxPrecision, teamBminPrecision, teamBposition);
@@ -410,7 +410,7 @@ var footballSimulation;
             }
             else if (object instanceof footballSimulation.Player && object.ballinRadius == false) {
                 object.draw();
-                //object.move(posBall);
+                object.move(object.startPos);
             }
         }
         handlePlayerBallApproach();

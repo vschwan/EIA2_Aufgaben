@@ -9,6 +9,7 @@ namespace footballSimulation {
         public team: string;
         public ballinRadius: boolean = false;
         public ballContact: boolean = false;
+        public startPos: Vector;
 
 
         constructor(_team: string, _color: string, _shirtNumber: number, _speed: number, _position: Vector, _precision?: number) {
@@ -20,6 +21,7 @@ namespace footballSimulation {
             this.shirtNumber = _shirtNumber;
             Player.radius = 30;
             this.speed = _speed;
+            this.startPos = _position;
 
             if (_position)
                 this.position = _position.copy();
@@ -110,7 +112,7 @@ namespace footballSimulation {
 
         }
 
-        public move(_newBallpos: Vector): void {
+        public move(_newPos: Vector): void {
 
             // //  super.move(_newBallpos);
             // let difference: Vector = Vector.getDifference(_newBallpos, this.position);
@@ -120,7 +122,7 @@ namespace footballSimulation {
 
             if (!this.ballContact) {
                // super.move(_newBallpos);
-                let difference: Vector = Vector.getDifference(_newBallpos, this.position);
+                let difference: Vector = Vector.getDifference(_newPos, this.position);
                 difference = difference.norm(difference);
               //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
                 difference.scale(this.speed / 50); //  difference.scale(this.speed); ?

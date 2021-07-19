@@ -12,6 +12,7 @@ var footballSimulation;
             this.shirtNumber = _shirtNumber;
             Player.radius = 30;
             this.speed = _speed;
+            this.startPos = _position;
             if (_position)
                 this.position = _position.copy();
         }
@@ -78,7 +79,7 @@ var footballSimulation;
             footballSimulation.crc2.fillText(String(this.shirtNumber), 0, 4);
             footballSimulation.crc2.restore();
         }
-        move(_newBallpos) {
+        move(_newPos) {
             // //  super.move(_newBallpos);
             // let difference: Vector = Vector.getDifference(_newBallpos, this.position);
             // //    let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
@@ -86,7 +87,7 @@ var footballSimulation;
             // this.position.add(difference);
             if (!this.ballContact) {
                 // super.move(_newBallpos);
-                let difference = footballSimulation.Vector.getDifference(_newBallpos, this.position);
+                let difference = footballSimulation.Vector.getDifference(_newPos, this.position);
                 difference = difference.norm(difference);
                 //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
                 difference.scale(this.speed / 50); //  difference.scale(this.speed); ?

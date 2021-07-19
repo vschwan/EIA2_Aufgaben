@@ -9,8 +9,6 @@ var footballSimulation;
             if (_position)
                 this.position = _position.copy();
         }
-        move(_newBallpos) {
-        }
     }
     footballSimulation.Moveables = Moveables;
 })(footballSimulation || (footballSimulation = {}));
