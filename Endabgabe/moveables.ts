@@ -6,7 +6,7 @@ namespace footballSimulation {
         protected velocity: Vector;
         public newBallPos: Vector;
         speed: number;
-        // public followBall: Vector;
+       
 
 
         constructor(_position?: Vector, _velocity?: Vector) {
@@ -21,10 +21,6 @@ namespace footballSimulation {
 
         public abstract draw(): void;
 
-        // public move(_newBallpos: Vector): void {
-           
-
-        // }
 
     }
 }

@@ -2,7 +2,6 @@
 var footballSimulation;
 (function (footballSimulation) {
     class Moveables {
-        // public followBall: Vector;
         constructor(_position, _velocity) {
             if (_velocity)
                 this.velocity = _velocity.copy();

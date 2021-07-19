@@ -101,22 +101,18 @@ namespace footballSimulation {
 
         public move(_newPos: Vector): void {
 
-            // //  super.move(_newBallpos);
-            // let difference: Vector = Vector.getDifference(_newBallpos, this.position);
-            // //    let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
-            // difference.scale(this.speed / 500); //  difference.scale(this.speed); ?
-            // this.position.add(difference);
+         
             if (_newPos.x == this.position.x && _newPos.y == this.position.y)
                 return;
             if (!this.ballContact) {
-                // super.move(_newBallpos);
+     
                 let difference: Vector = Vector.getDifference(_newPos, this.position);
                 if (difference.length < 10) {
                     return;
                 }
                 difference = difference.norm(difference);
                 //  let length: number = Math.abs(Math.sqrt((Math.pow(difference.x, 2) + (Math.pow(difference.y, 2)))));
-                difference.scale(this.speed / 50); //  difference.scale(this.speed); ?
+                difference.scale(this.speed / 50); 
                 this.position.add(difference);
             }
 

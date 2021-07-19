@@ -12,9 +12,8 @@ var footballSimulation;
     let givePlayerNewPos;
     let pauseAnimation = false;
     let shootBall = false;
-    let goalTA = false;
-    let goalTB = false;
     let newBallpos;
+    let startPosBall;
     let selection;
     let createNewPlayerTA;
     let createNewPlayerTB;
@@ -39,15 +38,13 @@ var footballSimulation;
     let submitPlayerSettings;
     let scoreTA = 0;
     let scoreTB = 0;
-    let showScore = document.querySelector("#currentScore");
+    let showScore;
     function handleLoad(_event) {
         //handle click on startButton
         let startButton = document.querySelector("#startGame");
         startButton.addEventListener("click", handleStart);
         let restartButton = document.querySelector("#restartGame");
         restartButton.addEventListener("click", function () { location.reload(); });
-        // selectPlayer = <HTMLButtonElement>document.querySelector("#selectPlayer");
-        // selectPlayer.addEventListener("click", handlePlayerSelection);
     }
     function handleStart() {
         //hide start div
@@ -69,6 +66,7 @@ var footballSimulation;
         scoreline.style.display = "inherit";
         let generalSettings = document.querySelector("#generalSettings");
         generalSettings.style.display = "inherit";
+        showScore = document.querySelector("#currentScore");
         playerPositionX = document.querySelector("#playerPositionX");
         playerPositionY = document.querySelector("#playerPositionY");
         resetPlayerSettings = document.querySelector("#resetPlayerSettings");
@@ -170,7 +168,7 @@ var footballSimulation;
             selection.appendChild(newOptionPlayer);
             moveables.push(newPlayer);
         }
-        console.log(moveables);
+        // console.log(moveables);
         givePlayerNewPos.addEventListener("click", function () {
             //toggle form elements by click on selectPlayer-button
             if (playerPositionX.disabled === true) {
@@ -201,7 +199,7 @@ var footballSimulation;
                         let newPosPlayer = new footballSimulation.Vector(parseFloat(playerPositionX.value), parseFloat(playerPositionY.value));
                         let p = moveables[index];
                         p.position = newPosPlayer;
-                        console.log(p, moveables);
+                        //   console.log(p, moveables);
                     }
                 }
                 playerPositionX.disabled = true;
@@ -246,9 +244,9 @@ var footballSimulation;
     }
     function drawReferees() {
         let posAssistantReferee1 = new footballSimulation.Vector(footballSimulation.crc2.canvas.width / 2, 10);
-        let assistantReferee1 = new footballSimulation.AssistantReferee(posAssistantReferee1, new footballSimulation.Vector(4, 3));
+        let assistantReferee1 = new footballSimulation.AssistantReferee(posAssistantReferee1, new footballSimulation.Vector(8, 2));
         // assistantReferee1.draw();
-        moveables.push(assistantReferee1); //zweiten parameter draw referees
+        moveables.push(assistantReferee1);
         let posAssistantReferee2 = new footballSimulation.Vector(footballSimulation.crc2.canvas.width / 2, footballSimulation.crc2.canvas.height - 10);
         let assistantReferee2 = new footballSimulation.AssistantReferee(posAssistantReferee2, new footballSimulation.Vector(8, 2));
         //   assistantReferee2.draw();
@@ -258,14 +256,11 @@ var footballSimulation;
         //  referee.draw();
         referee.speed = 25;
         moveables.push(referee);
-        background = footballSimulation.crc2.getImageData(0, 0, footballSimulation.canvas.width, footballSimulation.canvas.height);
-        // let posPlayer: Vector = new Vector(50, 50);
-        // let testplayer: Player = new Player(posPlayer, "red", 1);
-        // testplayer.draw();
     }
     function drawBall() {
-        let posBall = new footballSimulation.Vector(footballSimulation.crc2.canvas.width / 2, footballSimulation.crc2.canvas.height / 2);
-        ball = new footballSimulation.Ball(posBall);
+        startPosBall = new footballSimulation.Vector(footballSimulation.crc2.canvas.width / 2, footballSimulation.crc2.canvas.height / 2);
+        // let posBall: Vector = startPosBall;
+        ball = new footballSimulation.Ball(startPosBall);
         ball.speed = 20;
         // ball.draw();
         moveables.push(ball);
@@ -403,15 +398,19 @@ var footballSimulation;
         showScoreline();
         footballSimulation.crc2.putImageData(background, 0, 0);
         //  console.log(ball.position);
-        if (ball.position.x < 70 && ball.position.y > 137 && ball.position.y < 247) {
-            scoreTA = +1;
-            console.log(scoreTA);
+        if (ball.position.x < 20 && ball.position.y > 170 && ball.position.y < 210) {
+            ball.position = startPosBall.copy();
+            newBallpos = startPosBall.copy();
+            scoreTA += 1;
+            // console.log(scoreTA);
             showScore.innerText = scoreTA + ":" + scoreTB;
             //right goal
         }
-        else if (ball.position.x > 430 && ball.position.y > 137 && ball.position.y < 247) {
-            scoreTB = +1;
-            showScore.innerHTML = scoreTA + ":" + scoreTB;
+        else if (ball.position.x > 480 && ball.position.y > 170 && ball.position.y < 210) {
+            ball.position = startPosBall.copy();
+            newBallpos = startPosBall.copy();
+            scoreTB += 1;
+            showScore.innerHTML = teamA + ": " + scoreTA + ":" + scoreTB + ": " + teamB;
         }
         for (let object of moveables) {
             if (object instanceof footballSimulation.Ball && shootBall == true) {
