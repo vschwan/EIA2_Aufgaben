@@ -68,21 +68,21 @@ namespace footballSimulation {
 
             crc2.restore();
 
-            //radius
-            crc2.save();
-            crc2.translate(this.position.x, this.position.y);
-            crc2.beginPath();
+            // //radius
+            // crc2.save();
+            // crc2.translate(this.position.x, this.position.y);
+            // crc2.beginPath();
 
 
-            if (this.ballinRadius == true) {
-                crc2.fillStyle = "Horange";
-            } else {
-                crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
-            }
+            // if (this.ballinRadius == true) {
+            //     crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
+            // } else {
+            //     crc2.fillStyle = "HSLA(61, 100%, 62%, 0.2)";
+            // }
 
-            crc2.arc(0, 0, 40, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.restore();
+            // crc2.arc(0, 0, 40, 0, 2 * Math.PI);
+            // crc2.fill();
+            // crc2.restore();
 
             //tshirtNumber
             crc2.save();

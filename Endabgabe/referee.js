@@ -19,13 +19,13 @@ var footballSimulation;
             // difference.scale(this.speed / length); //  difference.scale(this.speed); ?
             // this.position.add(difference);
             // referee can move anywhere within the outer lines (except goal area)
-            if (this.position.x < 75 || this.position.x > 925)
-                this.velocity.x = -this.velocity.x;
-            if (this.position.y < 25 || this.position.y > 625)
-                this.velocity.y = -this.velocity.y;
-            this.position.x += this.velocity.x;
-            this.position.y += this.velocity.y;
-            this.draw();
+            // if (this.position.x < 75 || this.position.x > 925)
+            //     this.velocity.x = -this.velocity.x;
+            // if (this.position.y < 25 || this.position.y > 625)
+            //     this.velocity.y = -this.velocity.y;
+            // this.position.x += this.velocity.x;
+            // this.position.y += this.velocity.y;
+            // this.draw();
         }
     }
     footballSimulation.Referee = Referee;

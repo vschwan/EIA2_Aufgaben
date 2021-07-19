@@ -29,6 +29,11 @@ var footballSimulation;
     let teamAspeed;
     let teamAmaxSpeed;
     let teamAminSpeed;
+    //get form elements
+    let playerPositionX;
+    let playerPositionY;
+    let resetPlayerSettings;
+    let submitPlayerSettings;
     function handleLoad(_event) {
         //handle click on startButton
         let startButton = document.querySelector("#startGame");
@@ -58,6 +63,10 @@ var footballSimulation;
         scoreline.style.display = "inherit";
         let generalSettings = document.querySelector("#generalSettings");
         generalSettings.style.display = "inherit";
+        playerPositionX = document.querySelector("#playerPositionX");
+        playerPositionY = document.querySelector("#playerPositionY");
+        resetPlayerSettings = document.querySelector("#resetPlayerSettings");
+        submitPlayerSettings = document.querySelector("#submitPlayerSettings");
         createNewPlayerTA = document.querySelector("#createnewPlayerTeamA");
         createNewPlayerTA.addEventListener("click", function createNewPlTA() {
             let buttonTA = this;
@@ -69,7 +78,7 @@ var footballSimulation;
             createNewPlayer(buttonTB);
         });
         handlePlayerBallApproach();
-        showscoreline();
+        showScoreline();
         window.setInterval(animate, 20);
     }
     //handle the team seetings form
@@ -157,11 +166,6 @@ var footballSimulation;
         }
         console.log(moveables);
         givePlayerNewPos.addEventListener("click", function () {
-            //get form elements
-            let playerPositionX = document.querySelector("#playerPositionX");
-            let playerPositionY = document.querySelector("#playerPositionY");
-            let resetPlayerSettings = document.querySelector("#resetPlayerSettings");
-            let submitPlayerSettings = document.querySelector("#submitPlayerSettings");
             //toggle form elements by click on selectPlayer-button
             if (playerPositionX.disabled === true) {
                 playerPositionX.disabled = false;
@@ -375,7 +379,7 @@ var footballSimulation;
             });
         }
     }
-    function showscoreline() {
+    function showScoreline() {
         let showBallPossession = document.querySelector("#currentBallPossession");
         let showScore = document.querySelector("#currentScore");
         for (let player of moveables) {

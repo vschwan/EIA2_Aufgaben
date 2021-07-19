@@ -35,6 +35,14 @@ namespace footballSimulation {
     let teamAmaxSpeed: number;
     let teamAminSpeed: number;
 
+    //get form elements
+    let playerPositionX: HTMLInputElement;
+    let playerPositionY: HTMLInputElement;
+    let resetPlayerSettings: HTMLButtonElement;
+    let submitPlayerSettings: HTMLButtonElement;
+
+
+
     function handleLoad(_event: Event): void {
         //handle click on startButton
         let startButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#startGame");
@@ -71,6 +79,11 @@ namespace footballSimulation {
         let generalSettings: HTMLDivElement = <HTMLDivElement>document.querySelector("#generalSettings");
         generalSettings.style.display = "inherit";
 
+        playerPositionX = <HTMLInputElement>document.querySelector("#playerPositionX");
+        playerPositionY = <HTMLInputElement>document.querySelector("#playerPositionY");
+        resetPlayerSettings = <HTMLButtonElement>document.querySelector("#resetPlayerSettings");
+        submitPlayerSettings = <HTMLButtonElement>document.querySelector("#submitPlayerSettings");
+
         createNewPlayerTA = <HTMLButtonElement>document.querySelector("#createnewPlayerTeamA");
         createNewPlayerTA.addEventListener("click", function createNewPlTA(): void {
             let buttonTA: HTMLButtonElement = <HTMLButtonElement>this;
@@ -83,7 +96,7 @@ namespace footballSimulation {
         });
 
         handlePlayerBallApproach();
-        showscoreline();
+        showScoreline();
 
         window.setInterval(animate, 20);
     }
@@ -185,21 +198,12 @@ namespace footballSimulation {
         console.log(moveables);
 
         givePlayerNewPos.addEventListener("click", function (): void {
-
-            //get form elements
-            let playerPositionX: HTMLInputElement = <HTMLInputElement>document.querySelector("#playerPositionX");
-            let playerPositionY: HTMLInputElement = <HTMLInputElement>document.querySelector("#playerPositionY");
-            let resetPlayerSettings: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#resetPlayerSettings");
-            let submitPlayerSettings: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#submitPlayerSettings");
-
-
             //toggle form elements by click on selectPlayer-button
             if (playerPositionX.disabled === true) {
                 playerPositionX.disabled = false;
                 playerPositionY.disabled = false;
                 resetPlayerSettings.disabled = false;
                 submitPlayerSettings.disabled = false;
-
             }
             else {
                 playerPositionX.disabled = true;
@@ -207,8 +211,6 @@ namespace footballSimulation {
                 resetPlayerSettings.disabled = true;
                 submitPlayerSettings.disabled = true;
             }
-
-
 
             submitPlayerSettings.addEventListener("click", function submit(): void {
                 let team: HTMLSelectElement = <HTMLSelectElement>document.querySelector("#" + _teamName);
@@ -443,7 +445,7 @@ namespace footballSimulation {
         }
     }
 
-    function showscoreline(): void {
+    function showScoreline(): void {
         let showBallPossession: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#currentBallPossession");
         let showScore: HTMLSpanElement = <HTMLSpanElement>document.querySelector("#currentScore");
 
