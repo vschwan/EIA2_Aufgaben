@@ -244,7 +244,7 @@ namespace footballSimulation {
 
             });
         });
-
+        
         removePlayer.addEventListener("click", function (): void {
             //whole selection
             let team: HTMLSelectElement = <HTMLSelectElement>document.querySelector("#" + _teamName);
